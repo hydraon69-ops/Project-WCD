@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Peradaban Kuno - Eksplorasi lima peradaban terbesar dunia">
+    <title>Peradaban Kuno - Warisan Dunia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 50: '#faf8f3', 500: '#c9a961', 600: '#b89a52', 700: '#a68a43' },
+                        dark: { 800: '#1a1a1a', 900: '#0f0f0f' },
+                        cream: '#f5f3f0'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Segoe UI', 'Tahoma', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-cream text-gray-800">
+    <!-- HEADER & NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-serif text-xl font-semibold tracking-widest text-gray-900">PERADABAN KUNO</div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#home" class="text-gray-700 hover:text-gold-500 transition border-b-2 border-gold-500">Beranda</a>
+                <a href="#peradaban" class="text-gray-700 hover:text-gold-500 transition">Peradaban</a>
+                <a href="#timeline" class="text-gray-700 hover:text-gold-500 transition">Timeline</a>
+                <a href="#warisan" class="text-gray-700 hover:text-gold-500 transition">Warisan</a>
+            </nav>
+            <button class="border-2 border-gray-900 px-5 py-2 hover:bg-gray-900 hover:text-white transition text-sm font-medium">Mulai Jelajah</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen bg-gradient-to-b from-dark-800 to-dark-900 flex items-center justify-center overflow-hidden" id="home">
+        <div class="absolute inset-0 opacity-40" style="background-image: url('https://images.unsplash.com/photo-1570826229090-9f6f6b4be8d7?w=1200'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-50"></div>
+        
+        <div class="relative z-10 text-center text-white max-w-3xl px-6">
+            <span class="inline-block text-gold-500 text-sm tracking-widest font-semibold mb-4">SERI 5 PERADABAN KUNO DUNIA</span>
+            <h1 class="font-serif text-6xl md:text-7xl font-light mb-4 leading-tight">Lima Peradaban yang Mengubah Segalanya</h1>
+            <p class="text-lg text-gray-300 mb-8 tracking-wide">Mesir · Mesopotamia · Indus · Babilonia · Roma</p>
+            
+            <div class="flex flex-wrap gap-3 justify-center">
+                <button class="px-6 py-3 bg-gold-500 hover:bg-gold-600 text-black font-semibold rounded-full transition">Mesir Kuno</button>
+                <button class="px-6 py-3 border-2 border-white hover:bg-white hover:text-black text-white font-semibold rounded-full transition">Mesopotamia</button>
+                <button class="px-6 py-3 border-2 border-white hover:bg-white hover:text-black text-white font-semibold rounded-full transition">Sungai Indus</button>
+                <button class="px-6 py-3 border-2 border-white hover:bg-white hover:text-black text-white font-semibold rounded-full transition">Babilonia</button>
+                <button class="px-6 py-3 border-2 border-white hover:bg-white hover:text-black text-white font-semibold rounded-full transition">Roma Kuno</button>
+            </div>
+
+            <div class="mt-16 animate-bounce">
+                <svg class="w-6 h-6 mx-auto text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="py-20 bg-white text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <span class="text-gold-500 text-sm tracking-widest font-semibold uppercase">Pengenalan</span>
+            <h2 class="font-serif text-5xl text-gray-900 mt-4 mb-6">Dari Padang Pasir ke Lembah Sungai</h2>
+            <p class="text-gray-600 text-lg leading-relaxed">
+                Lima peradaban zaman mengubah cara manusia berpikir, berkomunikasi, dan berorganisasi. 
+                Walaupun muncak hilih dalam setiap aspek peradaban modern hari ini, warisan mereka tetap 
+                menjadi fondasi dari dunia yang kita kenal sekarang.
+            </p>
+        </div>
+    </section>
+
+    <!-- CARDS SECTION -->
+    <section class="py-20 bg-cream" id="peradaban">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold-500 text-sm tracking-widest font-semibold uppercase">Lima Peradaban Dunia</span>
+                <h2 class="font-serif text-5xl text-gray-900 mt-4 mb-4">Lima Kisah yang Satu</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Setiap peradaban memiliki cerita unik. Klik untuk membaca lebih lanjut tentang 
+                    sejarah, kalender, nota, dan cara kita hidup mereka.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Card Mesir -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-600"></div>
+                    <div class="p-4">
+                        <span class="text-xs text-gold-500 font-semibold">MESIR KUNO</span>
+                        <h3 class="font-serif text-xl text-gray-900 mt-2">Mesir Kuno</h3>
+                        <p class="text-gray-600 text-sm mt-2">Pemerintah, HD, dan 3,000 tahun kebesaran</p>
+                        <a href="peradaban.html?id=mesir" class="text-gold-500 font-semibold text-sm mt-4 inline-block hover:text-gold-600">Jelajahi →</a>
+                    </div>
+                </div>
+
+                <!-- Card Mesopotamia -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-amber-700 to-amber-900"></div>
+                    <div class="p-4">
+                        <span class="text-xs text-gold-500 font-semibold">MESOPOTAMIA</span>
+                        <h3 class="font-serif text-xl text-gray-900 mt-2">Mesopotamia</h3>
+                        <p class="text-gray-600 text-sm mt-2">Tiada, kahar, dan tulisan pertama di dunia</p>
+                        <a href="peradaban.html?id=mesopotamia" class="text-gold-500 font-semibold text-sm mt-4 inline-block hover:text-gold-600">Jelajahi →</a>
+                    </div>
+                </div>
+
+                <!-- Card Indus -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800"></div>
+                    <div class="p-4">
+                        <span class="text-xs text-gold-500 font-semibold">SUNGAI INDUS</span>
+                        <h3 class="font-serif text-xl text-gray-900 mt-2">Sungai Indus</h3>
+                        <p class="text-gray-600 text-sm mt-2">Kota terkenal dan angka dalam peradaban purba</p>
+                        <a href="peradaban.html?id=indus" class="text-gold-500 font-semibold text-sm mt-4 inline-block hover:text-gold-600">Jelajahi →</a>
+                    </div>
+                </div>
+
+                <!-- Card Babilonia -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-purple-800"></div>
+                    <div class="p-4">
+                        <span class="text-xs text-gold-500 font-semibold">BABILONIA</span>
+                        <h3 class="font-serif text-xl text-gray-900 mt-2">Babilonia</h3>
+                        <p class="text-gray-600 text-sm mt-2">Menggabungkan, matematika, dan semesta agama dunia</p>
+                        <a href="peradaban.html?id=babilonia" class="text-gold-500 font-semibold text-sm mt-4 inline-block hover:text-gold-600">Jelajahi →</a>
+                    </div>
+                </div>
+
+                <!-- Card Roma -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-red-600 to-red-800"></div>
+                    <div class="p-4">
+                        <span class="text-xs text-gold-500 font-semibold">ROMA KUNO</span>
+                        <h3 class="font-serif text-xl text-gray-900 mt-2">Roma Kuno</h3>
+                        <p class="text-gray-600 text-sm mt-2">Republik, pengalaman, dan kegelapan yang memutar balik</p>
+                        <a href="peradaban.html?id=roma" class="text-gold-500 font-semibold text-sm mt-4 inline-block hover:text-gold-600">Jelajahi →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="py-20 bg-white" id="timeline">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold-500 text-sm tracking-widest font-semibold uppercase">Perjalanan Waktu</span>
+                <h2 class="font-serif text-5xl text-gray-900 mt-4 mb-4">Yang Masih Hidup Hingga Kini</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Singapura tiga peradaban kuno membangun dunia modern</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-gray-50 rounded-lg border-l-4 border-gold-500">
+                    <h3 class="font-serif text-4xl text-gold-500 mb-2">60</h3>
+                    <p class="font-semibold text-gray-900 mb-2">Satuan Wajah Modern</p>
+                    <p class="text-gray-600 text-sm">Budaya yang langsung dari dukungan modern di abad ke-XXI dan millenium ini</p>
+                </div>
+
+                <div class="p-8 bg-gray-50 rounded-lg border-l-4 border-gold-500">
+                    <h3 class="font-serif text-4xl text-gold-500 mb-2">365</h3>
+                    <p class="font-semibold text-gray-900 mb-2">Kalender 365 Hari</p>
+                    <p class="text-gray-600 text-sm">Dirancang dan waktu lama hingga hari yang digunakan kalender Gregorian kita hari ini</p>
+                </div>
+
+                <div class="p-8 bg-gray-50 rounded-lg border-l-4 border-gold-500">
+                    <h3 class="font-serif text-4xl text-gold-500 mb-2">150+</h3>
+                    <p class="font-semibold text-gray-900 mb-2">Budaya Hukum Modern</p>
+                    <p class="text-gray-600 text-sm">Lebih dari 150 negara menggunakan hukum pidana yang berasal dari Roma Kuno</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WARISAN SECTION -->
+    <section class="py-20 bg-cream" id="warisan">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold-500 text-sm tracking-widest font-semibold uppercase">Warisan & Budaya</span>
+                <h2 class="font-serif text-5xl text-gray-900 mt-4">Warisan yang Masih Anda Gunakan Hari Ini</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Mesir -->
+                <div class="bg-yellow-500 text-white rounded-lg p-6">
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Mesir Kuno</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Alkemi Kalender 365 Hari</li>
+                        <li>• Catetan Geometric Cari</li>
+                        <li>• Batu Monumental</li>
+                    </ul>
+                </div>
+
+                <!-- Mesopotamia -->
+                <div class="bg-amber-800 text-white rounded-lg p-6">
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Mesopotamia</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Tulisan Cuneiform</li>
+                        <li>• Kode Hukum Hammurabi</li>
+                        <li>• Catatan Kalkulus</li>
+                    </ul>
+                </div>
+
+                <!-- Indus -->
+                <div class="bg-blue-700 text-white rounded-lg p-6">
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Sungai Indus</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Rencana Kota Grid</li>
+                        <li>• Sistem Drainase Kuno</li>
+                        <li>• Bobot & Standar Ukuran</li>
+                    </ul>
+                </div>
+
+                <!-- Babilonia -->
+                <div class="bg-purple-700 text-white rounded-lg p-6">
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Babilonia</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Matematika & Astronomi</li>
+                        <li>• Kalender Bulan Kuno</li>
+                        <li>• Astrologi & Zodiak</li>
+                    </ul>
+                </div>
+
+                <!-- Roma -->
+                <div class="bg-red-700 text-white rounded-lg p-6">
+                    <h3 class="font-serif text-2xl font-semibold mb-4">Roma Kuno</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Sistem Hukum Sipil</li>
+                        <li>• Arsitektur & Jalan Raya</li>
+                        <li>• Bahasa Latin & Romawi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>© 2024 Peradaban Kuno. Semua hak cipta dilindungi.</p>
+            <div class="mt-4 flex justify-center gap-6">
+                <a href="#" class="text-gold-500 hover:text-gold-400">Tentang Kami</a>
+                <a href="#" class="text-gold-500 hover:text-gold-400">Kontak</a>
+                <a href="#" class="text-gold-500 hover:text-gold-400">Privasi</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
