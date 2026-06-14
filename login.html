@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Peradaban Kuno</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(rgba(20,15,10,.75), rgba(20,15,10,.75)),
+    url("https://images.unsplash.com/photo-1539768942893-daf53e448371?w=1600");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.login-container{
+    width:420px;
+    background:rgba(245,242,238,.95);
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo small{
+    color:#b8924e;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.logo h1{
+    margin-top:10px;
+    font-size:34px;
+    color:#2d241d;
+    font-weight:400;
+}
+
+.logo p{
+    color:#666;
+    margin-top:8px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#2d241d;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #d6cfc5;
+    border-radius:6px;
+    background:white;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#b8924e;
+}
+
+.btn-login{
+    width:100%;
+    padding:14px;
+    background:#b8924e;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.btn-login:hover{
+    background:#9f7d40;
+}
+
+.options{
+    margin-top:15px;
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+}
+
+.options a{
+    color:#8a6a32;
+    text-decoration:none;
+}
+
+.divider{
+    text-align:center;
+    margin:25px 0;
+    color:#999;
+}
+
+.register{
+    text-align:center;
+    font-size:14px;
+}
+
+.register a{
+    color:#8a6a32;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+@media(max-width:500px){
+
+    .login-container{
+        width:90%;
+        padding:30px;
+    }
+
+    .logo h1{
+        font-size:28px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="logo">
+        <small>PERADABAN KUNO</small>
+        <h1>Masuk ke Kronikuno</h1>
+        <p>Jelajahi jejak peradaban yang mengubah dunia</p>
+    </div>
+
+    <form>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="Masukkan email">
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Masukkan password">
+        </div>
+
+        <button type="submit" class="btn-login">
+            Masuk
+        </button>
+
+    </form>
+
+    <div class="options">
+        <a href="#">Lupa Password?</a>
+        <a href="#">Bantuan</a>
+    </div>
+
+    <div class="divider">
+        ───── ✦ ─────
+    </div>
+
+    <div class="register">
+        Belum punya akun?
+        <a href="#">Daftar Sekarang</a>
+    </div>
+
+</div>
+
+</body>
+</html>
