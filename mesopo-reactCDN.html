@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesopotamia — Seri 5 Peradaban Kuno Dunia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <!-- React via CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal:       #1a8a7a;
+    --teal-dark:  #146b5e;
+    --teal-mid:   #2aa090;
+    --teal-light: #7fcfca;
+    --teal-pale:  #b8e8e4;
+    --teal-bg:    #e8f5f3;
+    --bg:         #f0ede8;
+    --bg-white:   #faf9f7;
+    --text:       #1a1a1a;
+    --text-mid:   #444;
+    --text-light: #777;
+    --border:     #ddd;
+    --serif:      'Playfair Display', Georgia, serif;
+    --sans:       'Inter', system-ui, sans-serif;
+    --garamond:   'EB Garamond', Georgia, serif;
+  }
+
+  html { scroll-behavior: smooth; font-size: 18px; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topnav-left { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+  .topnav-left .back { color: #aaa; text-decoration: none; }
+  .topnav-left .back:hover { color: #fff; }
+  .topnav-left .sep { color: #555; }
+  .topnav-left .current { color: var(--teal-light); }
+  .topnav-right { display: flex; gap: 32px; font-size: 14px; }
+  .topnav-right a { color: #aaa; text-decoration: none; }
+  .topnav-right a:hover { color: #fff; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #1a8a7a 0%, #146b5e 40%, #0d4f45 100%);
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, rgba(20,80,70,0.7), transparent);
+  }
+  .hero-skyline {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    opacity: 0.25;
+  }
+  .hero-skyline span {
+    display: block;
+    background: #0d4f45;
+  }
+  .hero-label {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--teal-pale);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(64px, 9vw, 108px);
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 8px;
+    line-height: 1;
+    margin-bottom: 22px;
+  }
+  .hero-sub {
+    font-family: var(--garamond);
+    font-size: 20px;
+    color: var(--teal-pale);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .hero-dates {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--teal-light);
+    margin-bottom: 8px;
+  }
+  .hero-loc {
+    font-size: 13px;
+    color: #7fc8c0;
+    letter-spacing: 1px;
+  }
+
+  /* stats bar */
+  .stats-bar {
+    background: #0d4040;
+    display: flex;
+    justify-content: stretch;
+    gap: 0;
+    padding: 0;
+    margin-top: 44px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+  .stat-item {
+    flex: 1;
+    padding: 28px 0;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    display: block;
+    font-family: var(--serif);
+    font-size: 34px;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--teal-light);
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    display: flex;
+    width: 100%;
+  }
+
+  /* sidebar */
+  .sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    padding: 56px 0 56px 40px;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    border-right: 1px solid #e2ddd8;
+    background: var(--bg);
+  }
+  .sidebar-label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 24px;
+    padding-left: 4px;
+  }
+  .sidebar nav { display: flex; flex-direction: column; }
+  .sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    color: #999;
+    text-decoration: none;
+    padding: 9px 0 9px 4px;
+    border-left: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  .sidebar nav a:hover { color: var(--text-mid); }
+  .sidebar nav a.active {
+    color: var(--text);
+    font-weight: 600;
+    border-left-color: var(--teal);
+    background: rgba(26,138,122,0.06);
+  }
+  .sidebar nav a .num {
+    font-size: 13px;
+    color: #ccc;
+    min-width: 18px;
+    font-weight: 400;
+  }
+  .sidebar nav a.active .num { color: var(--teal); }
+
+  /* main content */
+  .main-content {
+    flex: 1;
+    padding: 0 64px;
+    min-width: 0;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 88px 0;
+    border-bottom: 1px solid #e2ddd8;
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .section h2 {
+    font-family: var(--serif);
+    font-size: clamp(40px, 4vw, 56px);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 32px;
+    line-height: 1.15;
+  }
+  .section p {
+    color: var(--text-mid);
+    font-size: 18px;
+    line-height: 1.85;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* FAKTA PEMBUKA */
+  .fakta-box {
+    border-left: 3px solid var(--teal);
+    background: var(--bg-white);
+    padding: 32px 40px;
+    margin: 48px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .fakta-box .fakta-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .fakta-box .fakta-label::before {
+    content: '✦';
+    font-size: 9px;
+  }
+  .fakta-box blockquote {
+    font-family: var(--garamond);
+    font-size: 18px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  /* MAP SECTION */
+  .map-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: var(--bg-white);
+    margin-top: 36px;
+    overflow: hidden;
+  }
+  .map-header {
+    padding: 14px 24px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    border-bottom: 1px solid #e8e5e0;
+  }
+  .map-svg-area {
+    padding: 28px;
+    min-height: 420px;
+    position: relative;
+  }
+  .map-legend {
+    position: absolute;
+    top: 36px; left: 48px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 18px 22px;
+    z-index: 10;
+  }
+  .map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .map-legend-item:last-child { margin-bottom: 0; }
+  .legend-line {
+    width: 32px; height: 3px;
+    border-radius: 2px;
+  }
+  .legend-arc {
+    width: 32px; height: 14px;
+    border-top: 3px solid var(--teal-light);
+    border-radius: 50% 50% 0 0;
+  }
+  .map-svg { width: 100%; height: 400px; }
+
+  /* TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 28px;
+    background: var(--bg-white);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+  .data-table thead tr {
+    background: var(--teal);
+  }
+  .data-table thead th {
+    padding: 16px 24px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+  }
+  .data-table tbody tr {
+    border-bottom: 1px solid #ece9e4;
+  }
+  .data-table tbody tr:last-child { border-bottom: none; }
+  .data-table tbody tr:hover { background: #f5f2ed; }
+  .data-table tbody td {
+    padding: 15px 24px;
+    font-size: 15px;
+    color: var(--text-mid);
+  }
+  .data-table tbody td:first-child {
+    font-weight: 500;
+    color: var(--text);
+  }
+  .teal-text { color: var(--teal); font-size: 14px; }
+
+  /* FIGURE CARDS */
+  .figure-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 32px;
+  }
+  .figure-card {
+    background: var(--bg-white);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .figure-card h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+  .figure-card .fig-dates { color: var(--teal); font-size: 13px; margin-bottom: 4px; }
+  .figure-card .fig-role {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .figure-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; margin: 0; }
+
+  /* INOVASI CARDS */
+  .inov-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+  .inov-card {
+    background: var(--bg-white);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 26px 28px;
+    border-top: 2px solid var(--teal-pale);
+  }
+  .inov-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .inov-icon {
+    width: 32px; height: 32px;
+    border: 1.5px solid var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+  .inov-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .inov-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+
+  /* HIERARKI */
+  .hierarki-box {
+    background: var(--bg-white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 36px;
+    margin-top: 32px;
+  }
+  .hierarki-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 28px;
+  }
+  .pyramid { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+  .pyr-tier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    height: 44px;
+  }
+  .pyr-tier.t1 { width: 280px; background: var(--teal-dark); }
+  .pyr-tier.t2 { width: 370px; background: var(--teal); }
+  .pyr-tier.t3 { width: 460px; background: var(--teal-mid); }
+  .pyr-tier.t4 { width: 550px; background: var(--teal-light); color: var(--text); }
+  .pyr-tier.t5 { width: 640px; background: var(--teal-pale); color: var(--text); }
+  .pyr-note { font-size: 13px; color: var(--text-light); margin-top: 14px; text-align: center; font-style: italic; }
+
+  /* KERUNTUHAN */
+  .collapse-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .collapse-card {
+    background: var(--bg-white);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 24px 28px;
+    border-left: 3px solid var(--teal-light);
+  }
+  .collapse-card h4 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+  .collapse-card p { font-size: 15px; color: var(--text-mid); line-height: 1.7; margin: 0; }
+
+  /* TIMELINE */
+  .timeline { margin-top: 32px; }
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 14px 0;
+    border-bottom: 1px solid #ece9e4;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .tl-date {
+    min-width: 90px;
+    text-align: right;
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 500;
+    padding-top: 3px;
+    letter-spacing: 0.5px;
+  }
+  .tl-dot {
+    width: 12px; height: 12px;
+    border: 2px solid var(--teal-light);
+    border-radius: 50%;
+    background: var(--bg);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .tl-text { font-size: 15px; color: var(--text-mid); line-height: 1.65; }
+
+  /* REFLEKSI */
+  .refleksi-box {
+    background: #111;
+    color: #e8e8e8;
+    border-radius: 8px;
+    padding: 48px 56px;
+    margin-top: 36px;
+  }
+  .refleksi-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal-light);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .refleksi-label::before { content: '✦'; font-size: 9px; }
+  .refleksi-box blockquote {
+    font-family: var(--garamond);
+    font-size: 19px;
+    line-height: 1.8;
+    font-style: italic;
+    color: #d8d8d8;
+    margin-bottom: 22px;
+  }
+  .refleksi-box cite {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+
+  /* NAV FOOTER */
+  .page-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px 0;
+    border-top: 1px solid #ddd;
+  }
+  .nav-btn {
+    border: 1px solid #ccc;
+    background: var(--bg-white);
+    padding: 16px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .nav-btn.prev { color: var(--text-mid); }
+  .nav-btn.next { background: var(--teal); color: #fff; border-color: var(--teal); font-weight: 500; }
+  .nav-btn .nav-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: inherit; opacity: 0.7; display: block; margin-bottom: 3px; }
+  .nav-btn .nav-title { font-size: 15px; font-weight: 500; }
+  .nav-btn.prev .nav-label { color: var(--text-light); }
+  .page-center-label { text-align: center; font-size: 13px; color: var(--text-light); }
+  .page-center-label strong { display: block; font-size: 14px; color: var(--text); }
+
+  /* TOKOH TABS (React) */
+  .tokoh-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e2ddd8;
+    margin-top: 56px;
+    margin-bottom: 0;
+  }
+  .tokoh-tab {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-family: var(--sans);
+    font-weight: 500;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .tokoh-tab:hover { color: var(--text-mid); }
+  .tokoh-tab.active {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+    font-weight: 600;
+  }
+  .tokoh-panel {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    background: var(--bg-white);
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 36px 40px;
+  }
+  .tokoh-meta { }
+  .tokoh-meta h3 {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .tokoh-meta .dates { color: var(--teal); font-size: 14px; margin-bottom: 4px; }
+  .tokoh-meta .role {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 22px;
+  }
+  .tokoh-badge {
+    display: inline-block;
+    background: var(--teal-bg);
+    color: var(--teal-dark);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .tokoh-desc { font-size: 17px; color: var(--text-mid); line-height: 1.85; margin-bottom: 20px; }
+  .tokoh-fact {
+    background: var(--teal-bg);
+    border-left: 3px solid var(--teal);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    font-size: 15px;
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  /* TIMELINE FILTER (React) */
+  .tl-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .tl-filter-btn {
+    padding: 6px 18px;
+    font-size: 13px;
+    border-radius: 20px;
+    border: 1.5px solid #ccc;
+    background: #fff;
+    color: var(--text-mid);
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.18s;
+  }
+  .tl-filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .tl-filter-btn.active {
+    background: var(--teal);
+    color: #fff;
+    border-color: var(--teal);
+  }
+  .tl-category-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111;
+    color: #888;
+    padding: 36px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+  }
+  .footer-brand { color: #fff; font-weight: 600; font-size: 15px; margin-bottom: 5px; }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { color: #888; text-decoration: none; }
+  .footer-links a:hover { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-left">
+    <a href="#" class="back">← PERADABAN KUNO</a>
+    <span class="sep">/</span>
+    <span class="current">Mesopotamia</span>
+  </div>
+  <div class="topnav-right">
+    <a href="#latar">Bab 1</a>
+    <a href="#geografi">Bab 2</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#warisan">Warisan</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-label">Seri 5 Peradaban Kuno Dunia</p>
+  <h1>MESOPOTAMIA</h1>
+  <p class="hero-sub">Tanah di Antara Dua Sungai — Tempat Peradaban Manusia Dimulai</p>
+  <p class="hero-dates">~5000 SM – 539 SM</p>
+  <p class="hero-loc">Lembah Sungai Eufrat & Tigris · Irak & Suriah Modern</p>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">7</span>
+      <span class="stat-label">Peradaban</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4.000+</span>
+      <span class="stat-label">Tahun</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Sungai Utama</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Warisan Tak Ternilai</span>
+    </div>
+  </div>
+</header>
+
+<!-- FAKTA PEMBUKA -->
+<div style="background:var(--bg-white); padding: 0;">
+  <div style="padding: 48px 64px 0 324px;">
+    <div class="fakta-box">
+      <div class="fakta-label">Fakta Pembuka</div>
+      <blockquote>"Setiap kali Anda melihat jam dan ada angka 60 di sana — 60 detik, 60 menit — Anda sedang menggunakan sistem angka yang ditemukan oleh bangsa Sumeria di Mesopotamia lebih dari 5.000 tahun yang lalu. Setiap kali roda berputar di kendaraan apapun di dunia, Anda menyaksikan warisan Mesopotamia bekerja."</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+  <!-- SIDEBAR — dirender oleh React -->
+  <div id="react-sidebar"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- 01 LATAR BELAKANG -->
+    <section class="section" id="latar">
+      <p class="section-eyebrow">01 · Latar Belakang</p>
+      <h2>Tempat Segalanya Dimulai</h2>
+      <p>Ada alasan mengapa para sejarawan menyebut Mesopotamia sebagai Cradle of Civilization — Buaian Peradaban. Dari lembah di antara Sungai Eufrat dan Tigris inilah sejumlah inovasi paling fundamental dalam sejarah manusia pertama kali muncul: tulisan, roda, kota, sistem hukum tertulis, perpustakaan, aritmatika, kalender, dan sistem irigasi skala besar.</p>
+      <p>Yang membuat Mesopotamia unik adalah sifatnya yang bukan satu peradaban tunggal, melainkan sebuah panggung besar tempat peradaban-peradaban silih berganti tampil. Sumeria, Akkadia, Babilonia, Assyria, Babilonia Baru, Persia — masing-masing mewarisi dan mengembangkan pencapaian pendahulunya selama lebih dari empat milenium.</p>
+    </section>
+
+    <!-- 02 GEOGRAFI -->
+    <section class="section" id="geografi">
+      <p class="section-eyebrow">02 · Geografi</p>
+      <h2>Tanah di Antara Dua Sungai</h2>
+      <p>Mesopotamia terletak di kawasan yang para geograf menyebutnya Bulan Sabit Subur (Fertile Crescent) — sabuk tanah subur melengkung yang membentang dari Teluk Persia di selatan, naik melalui lembah Eufrat dan Tigris, lalu melengkung ke barat melalui Suriah hingga Mediterania Timur.</p>
+      <p>Tanah ini subur bukan karena curah hujannya tinggi, melainkan karena banjir tahunan kedua sungai membawa lumpur dari pegunungan Turki dan mengendapkannya di dataran rendah. Kesuburan luar biasa inilah yang menarik gelombang demi gelombang pendatang — dari bangsa Ubaid sekitar 5500 SM hingga bangsa Sumeria yang tiba sekitar 4000 SM dan mengubah segalanya.</p>
+      <p>Posisi geografis Mesopotamia juga menjadikannya persimpangan perdagangan natural. Para pedagang dari India, Mesir, Asia Kecil, dan Arabia semua melewati kawasan ini — membawa tidak hanya barang dagangan tetapi juga ide dan teknologi.</p>
+
+      <div class="map-container">
+        <div class="map-header">Peta Mesopotamia — Fertile Crescent</div>
+        <div class="map-svg-area">
+          <div class="map-legend">
+            <div class="map-legend-item">
+              <div class="legend-line" style="background:var(--teal-dark);"></div>
+              Tigris
+            </div>
+            <div class="map-legend-item">
+              <div class="legend-line" style="background:var(--teal-mid);"></div>
+              Eufrat
+            </div>
+            <div class="map-legend-item">
+              <div class="legend-arc"></div>
+              Fertile Crescent
+            </div>
+          </div>
+          <svg class="map-svg" viewBox="0 0 800 370" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="500" cy="210" rx="310" ry="190" fill="#d4e8c2" opacity="0.35"/>
+            <ellipse cx="620" cy="80" rx="200" ry="100" fill="#b8dde8" opacity="0.35"/>
+            <ellipse cx="580" cy="330" rx="110" ry="55" fill="#a0d4d8" opacity="0.5"/>
+            <text x="545" y="336" font-size="13" fill="#2a8a90" font-family="Inter,sans-serif">Teluk Persia</text>
+            <path d="M300,60 Q480,-20 680,100 Q780,180 700,320" fill="none" stroke="#7fcfca" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
+            <path d="M310,30 Q380,120 420,200 Q450,260 460,330" fill="none" stroke="#2aa090" stroke-width="3" stroke-linecap="round"/>
+            <text x="305" y="125" font-size="12" fill="#2aa090" font-family="Inter,sans-serif" transform="rotate(-65,340,110)">Eufrat</text>
+            <path d="M370,20 Q430,110 460,200 Q480,270 490,345" fill="none" stroke="#146b5e" stroke-width="3.5" stroke-linecap="round"/>
+            <text x="420" y="80" font-size="12" fill="#146b5e" font-family="Inter,sans-serif" transform="rotate(-70,440,80)">Tigris</text>
+            <circle cx="455" cy="148" r="6" fill="#1a8a7a"/>
+            <text x="468" y="153" font-size="13" fill="#111" font-family="Inter,sans-serif" font-weight="500">Nineveh</text>
+            <circle cx="452" cy="215" r="6" fill="#1a8a7a"/>
+            <text x="464" y="220" font-size="13" fill="#111" font-family="Inter,sans-serif" font-weight="500">Babilon</text>
+            <circle cx="468" cy="258" r="6" fill="#1a8a7a"/>
+            <text x="480" y="263" font-size="13" fill="#111" font-family="Inter,sans-serif" font-weight="500">Uruk</text>
+            <circle cx="460" cy="295" r="6" fill="#1a8a7a"/>
+            <text x="472" y="300" font-size="13" fill="#111" font-family="Inter,sans-serif" font-weight="500">Ur</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 PUNCAK KEJAYAAN -->
+    <section class="section" id="puncak">
+      <p class="section-eyebrow">03 · Puncak Kejayaan</p>
+      <h2>Panggung Peradaban — Tujuh Bangsa, Satu Warisan</h2>
+      <p>Tidak ada peradaban lain dalam seri ini yang memiliki dinamika seperti Mesopotamia: wilayah yang dikuasai bergantian oleh tujuh bangsa berbeda selama empat ribu tahun, namun dengan setiap pergantian kekuasaan, warisan budaya pendahulu tidak dihancurkan — melainkan diwariskan dan diperkaya.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Bangsa</th>
+            <th>Periode</th>
+            <th>Kontribusi Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Ubaid</td><td><span class="teal-text">~5500–4000 SM</span></td><td>Penghuni pertama, pertanian irigasi awal</td></tr>
+          <tr><td>Sumeria</td><td><span class="teal-text">~4000–2350 SM</span></td><td>Tulisan paku, roda, kota pertama (Ur, Uruk, Kish)</td></tr>
+          <tr><td>Akkadia</td><td><span class="teal-text">~2350–2150 SM</span></td><td>Imperium pertama dunia di bawah Sargon Agung</td></tr>
+          <tr><td>Babilonia Lama</td><td><span class="teal-text">~1900–1600 SM</span></td><td>Codex Hammurabi, hukum tertulis pertama</td></tr>
+          <tr><td>Assyria</td><td><span class="teal-text">~1200–612 SM</span></td><td>Perpustakaan Assurbanipal, jaringan jalan kekaisaran</td></tr>
+          <tr><td>Babilonia Baru</td><td><span class="teal-text">~626–539 SM</span></td><td>Taman Gantung, Menara Babel, Nebukadnezar II</td></tr>
+          <tr><td>Persia</td><td><span class="teal-text">~539–330 SM</span></td><td>Penakluk terakhir, runtuh di tangan Alexander Agung</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Tokoh Kunci — dirender oleh React -->
+      <div id="react-tokoh"></div>
+    </section>
+
+    <!-- 04 ILMU & INOVASI -->
+    <section class="section" id="ilmu">
+      <p class="section-eyebrow">04 · Ilmu & Inovasi</p>
+      <h2>Warisan Ilmu yang Kita Gunakan Setiap Hari</h2>
+
+      <div class="inov-grid">
+        <div class="inov-card">
+          <div class="inov-card-header">
+            <div class="inov-icon">⏱</div>
+            <h3>Sistem Waktu Basis 60</h3>
+          </div>
+          <p>Bangsa Sumeria menggunakan basis 60 (sexagesimal). Dari sistem ini lahir: 60 detik per menit, 60 menit per jam, 360 derajat dalam satu lingkaran — yang masih kita gunakan tanpa perubahan selama 5.000 tahun.</p>
+        </div>
+        <div class="inov-card">
+          <div class="inov-card-header">
+            <div class="inov-icon">○</div>
+            <h3>Penemuan Roda</h3>
+          </div>
+          <p>Dikembangkan sekitar 3500 SM untuk gerobak dan meja putar keramik. Roda kemudian menjadi fondasi seluruh teknologi transportasi dan mekanik yang ada hingga hari ini.</p>
+        </div>
+        <div class="inov-card">
+          <div class="inov-card-header">
+            <div class="inov-icon">★</div>
+            <h3>Astronomi Presisi</h3>
+          </div>
+          <p>Pemetaan 12 rasi bintang zodiak, prediksi gerhana bulan dan matahari, serta pelacakan pergerakan planet. Catatan dalam ribuan lempengan tanah liat menjadi bahan studi para astronom modern.</p>
+        </div>
+        <div class="inov-card">
+          <div class="inov-card-header">
+            <div class="inov-icon">📖</div>
+            <h3>Epik Gilgamesh</h3>
+          </div>
+          <p>Karya tulis naratif tertua yang diketahui (~2100 SM). Berisi pertanyaan tentang kematian, persahabatan, dan makna hidup — dan mempengaruhi mitologi Yunani, Ibrani, dan berbagai tradisi lain.</p>
+        </div>
+        <div class="inov-card">
+          <div class="inov-card-header">
+            <div class="inov-icon">⚖</div>
+            <h3>Codex Hammurabi</h3>
+          </div>
+          <p>282 pasal hukum tertulis di atas obelisk batu. Untuk pertama kalinya hukum ditulis, dipajang di tengah kota, dan berlaku untuk semua orang tanpa kecuali.</p>
+        </div>
+        <div class="inov-card">
+          <div class="inov-card-header">
+            <div class="inov-icon">🏛</div>
+            <h3>Perpustakaan Assurbanipal</h3>
+          </div>
+          <p>Perpustakaan pertama di dunia di Nineveh — 2.200 lempengan tanah liat berisi pengetahuan astronomi, matematika, kedokteran, sastra, dan sejarah. Konsep perpustakaan lahir di sini.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 AGAMA & SOSIAL -->
+    <section class="section" id="agama">
+      <p class="section-eyebrow">05 · Agama & Sosial</p>
+      <h2>Sistem Kepercayaan dan Tatanan Masyarakat</h2>
+      <p>Bangsa Mesopotamia menganut politeisme — ratusan dewa yang masing-masing menguasai aspek tertentu dari alam dan kehidupan. Tiga dewa kosmik tertinggi: Anu (dewa langit), Enlil (dewa udara dan badai), dan Ea/Enki (dewa air dan kebijaksanaan). Marduk — dewa pelindung Babilon — kemudian menjadi dewa tertinggi di era Hammurabi.</p>
+      <p>Yang menarik dari teologi Mesopotamia adalah pandangan mereka tentang manusia: berbeda dari Mesir yang percaya jiwa menuju surga, bangsa Sumeria percaya bahwa setelah mati, manusia turun ke Kur — dunia bawah tanah yang gelap dan berdebu. Tidak ada surga yang dijanjikan. Ini menciptakan pragmatisme mengejutkan: karena tidak ada kehidupan setelah mati yang lebih baik, kehidupan sekarang harus dijalani sepenuhnya.</p>
+
+      <div class="hierarki-box">
+        <div class="hierarki-label">Hierarki Sosial</div>
+        <div class="pyramid">
+          <div class="pyr-tier t1">Raja & Kepala Pendeta</div>
+          <div class="pyr-tier t2">Pejabat & Bangsawan</div>
+          <div class="pyr-tier t3">Pedagang & Pengrajin</div>
+          <div class="pyr-tier t4">Petani & Peternak</div>
+          <div class="pyr-tier t5">Hamba & Budak</div>
+          <p class="pyr-note">*Status bisa naik melalui perdagangan yang berhasil atau prestasi militer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 KERUNTUHAN -->
+    <section class="section" id="keruntuhan">
+      <p class="section-eyebrow">06 · Keruntuhan</p>
+      <h2>Empat Milenium yang Berakhir</h2>
+      <p>Mesopotamia tidak pernah benar-benar runtuh dalam satu peristiwa tunggal — ia lebih tepat digambarkan sebagai panggung yang terus berganti pemeran.</p>
+
+      <div class="collapse-grid">
+        <div class="collapse-card">
+          <h4>Perang Internal</h4>
+          <p>Negara-kota Sumeria saling berkonflik berebut dominasi, menguras sumber daya dan melemahkan kohesi politik.</p>
+        </div>
+        <div class="collapse-card">
+          <h4>Invasi Bergelombang</h4>
+          <p>Setiap era dimulai dari invasi: Akkadia → Sumeria, Babilonia → Akkadia, Assyria → Babilonia, Persia → Babilonia Baru pada 539 SM.</p>
+        </div>
+        <div class="collapse-card">
+          <h4>Perubahan Iklim</h4>
+          <p>Kekeringan panjang sekitar 2200 SM menghancurkan Kekaisaran Akkadia. Ketergantungan ekstrem pada irigasi membuat peradaban sangat rentan.</p>
+        </div>
+        <div class="collapse-card">
+          <h4>Salinasi Tanah</h4>
+          <p>Irigasi intensif ribuan tahun menyebabkan akumulasi garam di tanah pertanian, perlahan menghancurkan produktivitas lahan.</p>
+        </div>
+      </div>
+
+      <p style="margin-top:32px;">Titik akhir formal datang pada 539 SM ketika Raja Persia Koresh Agung memasuki Babilon hampir tanpa perlawanan. Namun warisan Mesopotamia jauh dari berakhir.</p>
+    </section>
+
+    <!-- 07 TIMELINE -->
+    <section class="section" id="timeline">
+      <p class="section-eyebrow">07 · Timeline</p>
+      <h2>Kronologi Peradaban Mesopotamia</h2>
+
+      <!-- Timeline — dirender oleh React dengan filter -->
+      <div id="react-timeline"></div>
+    </section>
+
+    <!-- 08 WARISAN DUNIA -->
+    <section class="section" id="warisan">
+      <p class="section-eyebrow">08 · Warisan Dunia</p>
+      <h2>Peninggalan yang Tak Terlihat, Namun Selalu Ada</h2>
+      <p style="font-family:var(--garamond); font-style:italic; font-size:18px; color:var(--text-mid); margin-bottom:32px;">"Dari semua peradaban dalam seri ini, Mesopotamia adalah yang paling tersembunyi dalam keseharian modern — bukan karena warisannya kecil, tetapi karena ia sudah menyatu begitu dalam dengan fondasi peradaban manusia sehingga terasa seperti sesuatu yang selalu ada."</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Warisan</th>
+            <th>Wujud</th>
+            <th>Relevansi Modern</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tulisan Paku</td><td>600+ simbol di lempengan tanah liat</td><td>Akar semua sistem tulisan alfabet modern</td></tr>
+          <tr><td>Roda</td><td>Dikembangkan ~3500 SM</td><td>Fondasi transportasi dan mesin modern</td></tr>
+          <tr><td>Sistem Waktu 60</td><td>60 menit/jam, 360 derajat</td><td>Dipakai universal hingga hari ini</td></tr>
+          <tr><td>Codex Hammurabi</td><td>282 pasal hukum di obelisk batu</td><td>Fondasi hukum tertulis dan keadilan</td></tr>
+          <tr><td>Sistem Irigasi</td><td>Kanal dan bendungan Eufrat-Tigris</td><td>Model pertanian irigasi standar dunia</td></tr>
+          <tr><td>Epik Gilgamesh</td><td>Karya sastra tertua ~2100 SM</td><td>Mempengaruhi mitologi Yunani dan Ibrani</td></tr>
+          <tr><td>Perpustakaan Assurbanipal</td><td>2.200 lempengan pengetahuan</td><td>Konsep perpustakaan sistematis pertama</td></tr>
+          <tr><td>Astronomi & Zodiak</td><td>12 rasi bintang, prediksi gerhana</td><td>Dasar astronomi modern dan sistem zodiak</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 09 HARI INI -->
+    <section class="section" id="hariini">
+      <p class="section-eyebrow">09 · Hari Ini</p>
+      <h2>Mesopotamia Hari Ini — Ketika Warisan Terkubur Konflik</h2>
+      <p>Di bawah tanah Irak dan Suriah, para arkeolog terus menemukan hal-hal baru. Setiap lempengan tanah liat yang digali berpotensi mengandung teks yang belum pernah dibaca selama 4.000 tahun — resep masakan, catatan hutang piutang, surat cinta, atau teks sastra yang bisa mengubah pemahaman kita tentang sejarah awal manusia.</p>
+      <p>Mesopotamia mengajarkan sesuatu yang tidak diajarkan peradaban manapun: bahwa kemajuan manusia bukan garis lurus ke atas, melainkan tongkat estafet yang dilempar dari generasi ke generasi, dari bangsa ke bangsa.</p>
+
+      <div class="refleksi-box">
+        <div class="refleksi-label">Refleksi</div>
+        <blockquote>"Ironi terbesar sejarah mungkin adalah ini: tempat manusia pertama kali menemukan cara untuk hidup bersama secara tertib — dengan hukum, kota, dan tulisan — kini menjadi salah satu kawasan paling tidak stabil di dunia. Irak modern, yang tanahnya menyimpan reruntuhan Ur, Uruk, dan Babilon, masih berjuang menemukan perdamaian yang pernah diwujudkan oleh nenek moyangnya ribuan tahun lalu."</blockquote>
+        <cite>— Seri 5 Peradaban Kuno Dunia · Mesopotamia</cite>
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-nav">
+        <a href="#" class="nav-btn prev">
+          <span class="nav-label">Sebelumnya</span>
+          <span class="nav-title">← Mesir Kuno</span>
+        </a>
+        <div class="page-center-label">
+          <strong>Peradaban Kuno</strong>
+          Menjelajahi Akar Peradaban Manusia
+        </div>
+        <a href="#" class="nav-btn next">
+          <span class="nav-label">Selanjutnya</span>
+          <span class="nav-title">Sungai Indus →</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Peradaban Kuno</div>
+    <div>Seri 5 Peradaban Kuno Dunia — Gerakan Edukasi Bahasa Indonesia</div>
+    <div style="margin-top:6px;">© 2024 Peradaban Kuno</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Mesir</a>
+    <a href="#">Mesopotamia</a>
+    <a href="#">Sungai Indus</a>
+    <a href="#">Babilonia</a>
+    <a href="#">Tetiwa</a>
+    <a href="#">Timeline</a>
+    <a href="#">Warisan</a>
+  </div>
+</footer>
+
+<script type="text/babel">
+  const { useState, useEffect } = React;
+
+  /* ─────────────────────────────────────────
+     1. SIDEBAR COMPONENT — active link via scroll
+  ───────────────────────────────────────── */
+  const navItems = [
+    { id: 'latar',      num: 1, label: 'Latar Belakang' },
+    { id: 'geografi',   num: 2, label: 'Geografi' },
+    { id: 'puncak',     num: 3, label: 'Puncak Kejayaan' },
+    { id: 'ilmu',       num: 4, label: 'Ilmu & Inovasi' },
+    { id: 'agama',      num: 5, label: 'Agama & Sosial' },
+    { id: 'keruntuhan', num: 6, label: 'Keruntuhan' },
+    { id: 'timeline',   num: 7, label: 'Timeline' },
+    { id: 'warisan',    num: 8, label: 'Warisan' },
+    { id: 'hariini',    num: 9, label: 'Hari Ini' },
+  ];
+
+  function Sidebar() {
+    const [active, setActive] = useState('latar');
+
+    useEffect(() => {
+      const onScroll = () => {
+        let current = 'latar';
+        navItems.forEach(({ id }) => {
+          const el = document.getElementById(id);
+          if (el && window.scrollY >= el.offsetTop - 130) current = id;
+        });
+        setActive(current);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    return (
+      <aside className="sidebar">
+        <div className="sidebar-label">Isi Halaman</div>
+        <nav>
+          {navItems.map(({ id, num, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={active === id ? 'active' : ''}
+              onClick={() => setActive(id)}
+            >
+              <span className="num">{num}</span> {label}
+            </a>
+          ))}
+        </nav>
+      </aside>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('react-sidebar')).render(<Sidebar />);
+
+  /* ─────────────────────────────────────────
+     2. TOKOH KUNCI TABS COMPONENT
+  ───────────────────────────────────────── */
+  const tokohData = [
+    {
+      id: 'sargon',
+      name: 'Sargon Agung',
+      dates: '~2334–2279 SM',
+      role: 'Raja Akkadia',
+      badges: ['Penyatu Pertama', 'Pembangun Imperium'],
+      desc: 'Penguasa pertama yang menyatukan seluruh Mesopotamia di bawah satu kekuasaan. Lahir dari kalangan rakyat biasa — legenda menyebut ia ditemukan dalam keranjang di sungai, mirip kisah Musa — ia naik menjadi penguasa paling berkuasa di zamannya.',
+      desc2: 'Imperium Akkadia yang ia bangun membentang dari Teluk Persia hingga Laut Mediterania — imperium pertama dalam sejarah manusia yang tercatat.',
+      fact: '"Sargon dari Agade, yang tidak memiliki ayah yang dikenal, menjadi raja dan memerintah selama 56 tahun." — Daftar Raja Sumeria',
+    },
+    {
+      id: 'hammurabi',
+      name: 'Hammurabi',
+      dates: '1792–1750 SM',
+      role: 'Raja Babilonia',
+      badges: ['Pembuat Hukum Pertama', 'Legislator Dunia'],
+      desc: 'Pembuat hukum tertulis pertama di dunia. Codex Hammurabi — 282 pasal hukum yang diukir di obelisk batu setinggi 2,25 meter — meletakkan fondasi prinsip kesetaraan di hadapan hukum.',
+      desc2: 'Prinsip "mata ganti mata" yang sering dikutip berasal dari codex ini. Yang lebih revolusioner: hukum dipajang di alun-alun kota agar semua orang bisa membacanya — tidak ada yang bisa mengklaim tidak tahu.',
+      fact: '"Agar yang kuat tidak menindas yang lemah, agar yatim piatu dan janda mendapat keadilan." — Pembukaan Codex Hammurabi',
+    },
+    {
+      id: 'nebukadnezar',
+      name: 'Nebukadnezar II',
+      dates: '605–562 SM',
+      role: 'Raja Babilonia Baru',
+      badges: ['Pembangun Babilon', 'Raja Tujuh Keajaiban'],
+      desc: 'Pembangun kota Babilon yang legendaris — pada masanya, Babilon menjadi kota terbesar dan termegah di dunia dengan populasi diperkirakan 200.000 jiwa.',
+      desc2: 'Di bawah pemerintahannya lahir Taman Gantung Babilonia — salah satu dari Tujuh Keajaiban Dunia Kuno. Ia juga membangun Gerbang Ishtar yang ikonik, dihiasi glasir biru lazurit dengan ukiran banteng dan naga.',
+      fact: 'Babilon di bawah Nebukadnezar II memiliki tembok kota yang begitu lebar sehingga dua kereta perang bisa berjalan berdampingan di atasnya.',
+    },
+  ];
+
+  function TokohTabs() {
+    const [active, setActive] = useState('sargon');
+    const tokoh = tokohData.find(t => t.id === active);
+
+    return (
+      <div style={{ marginTop: '56px' }}>
+        <p className="section-eyebrow" style={{ marginBottom: '18px' }}>Tokoh Kunci</p>
+
+        <div className="tokoh-tabs">
+          {tokohData.map(t => (
+            <button
+              key={t.id}
+              className={`tokoh-tab${active === t.id ? ' active' : ''}`}
+              onClick={() => setActive(t.id)}
+            >
+              {t.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="tokoh-panel">
+          <div className="tokoh-meta">
+            <h3>{tokoh.name}</h3>
+            <div className="dates">{tokoh.dates}</div>
+            <div className="role">{tokoh.role}</div>
+            {tokoh.badges.map(b => (
+              <div key={b} className="tokoh-badge">{b}</div>
+            ))}
+          </div>
+          <div>
+            <p className="tokoh-desc">{tokoh.desc}</p>
+            <p className="tokoh-desc">{tokoh.desc2}</p>
+            <div className="tokoh-fact">{tokoh.fact}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('react-tokoh')).render(<TokohTabs />);
+
+  /* ─────────────────────────────────────────
+     3. TIMELINE COMPONENT — dengan filter kategori
+  ───────────────────────────────────────── */
+  const timelineData = [
+    { date: '~5500 SM', text: 'Bangsa Ubaid: Penghuni pertama Mesopotamia, pertanian irigasi awal', category: 'Politik' },
+    { date: '~4000 SM', text: 'Bangsa Sumeria tiba, memulai era inovasi besar', category: 'Politik' },
+    { date: '~3500 SM', text: 'Penemuan Roda oleh bangsa Sumeria', category: 'Inovasi' },
+    { date: '~3100 SM', text: 'Tulisan Paku (Cuneiform) ditemukan — tulisan pertama di dunia', category: 'Inovasi' },
+    { date: '~2350 SM', text: 'Sargon Agung mendirikan Kekaisaran Akkadia — imperium pertama dunia', category: 'Politik' },
+    { date: '~2100 SM', text: 'Epik Gilgamesh ditulis — karya sastra tertua yang diketahui', category: 'Budaya' },
+    { date: '~1792 SM', text: 'Hammurabi naik tahta di Babilon', category: 'Politik' },
+    { date: '~1754 SM', text: 'Codex Hammurabi diukir — hukum tertulis pertama di dunia', category: 'Inovasi' },
+    { date: '~1200 SM', text: 'Era Assyria dimulai, kekuatan militer dominan', category: 'Politik' },
+    { date: '~668 SM',  text: 'Perpustakaan Assurbanipal dibangun di Nineveh', category: 'Budaya' },
+    { date: '~605 SM',  text: 'Nebukadnezar II berkuasa, membangun Babilon megah', category: 'Politik' },
+    { date: '~575 SM',  text: 'Taman Gantung Babilonia dibangun', category: 'Budaya' },
+    { date: '~539 SM',  text: 'Persia di bawah Koresh Agung menaklukkan Babilon — akhir Mesopotamia', category: 'Politik' },
+    { date: '~330 SM',  text: 'Alexander Agung menaklukkan Persia — warisan beralih ke Barat', category: 'Politik' },
+  ];
+
+  const categoryColors = {
+    'Semua':   '#1a8a7a',
+    'Politik': '#e07b39',
+    'Inovasi': '#1a8a7a',
+    'Budaya':  '#8b5cf6',
+  };
+
+  function Timeline() {
+    const [filter, setFilter] = useState('Semua');
+    const categories = ['Semua', 'Politik', 'Inovasi', 'Budaya'];
+
+    const filtered = filter === 'Semua'
+      ? timelineData
+      : timelineData.filter(t => t.category === filter);
+
+    return (
+      <div>
+        <div className="tl-filters">
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`tl-filter-btn${filter === cat ? ' active' : ''}`}
+              style={filter === cat ? { background: categoryColors[cat], borderColor: categoryColors[cat] } : {}}
+              onClick={() => setFilter(cat)}
+            >
+              {cat !== 'Semua' && (
+                <span
+                  className="tl-category-dot"
+                  style={{ background: categoryColors[cat] }}
+                />
+              )}
+              {cat}
+            </button>
+          ))}
+          <span style={{ fontSize: '13px', color: '#999', alignSelf: 'center', marginLeft: '8px' }}>
+            {filtered.length} peristiwa
+          </span>
+        </div>
+
+        <div className="timeline">
+          {filtered.map((item, i) => (
+            <div key={i} className="timeline-item">
+              <span className="tl-date">{item.date}</span>
+              <div
+                className="tl-dot"
+                style={{ borderColor: categoryColors[item.category] }}
+              />
+              <span className="tl-text">
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: '7px', height: '7px',
+                    borderRadius: '50%',
+                    background: categoryColors[item.category],
+                    marginRight: '8px',
+                    verticalAlign: 'middle',
+                    flexShrink: 0,
+                  }}
+                />
+                {item.text}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('react-timeline')).render(<Timeline />);
+</script>
+</body>
+</html>
