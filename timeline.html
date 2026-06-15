@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garis Waktu Peradaban Dunia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+          --bg-dark: #221F1E;
+          --bg-light: #EFECE6;
+          --text-dark: #2A2625;
+          --text-muted: #8C877E;
+          --accent-coral: #E07A5F;
+          --font-serif-body: 'Playfair Display', serif;
+          --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+          background-color: var(--bg-light);
+          color: var(--text-dark);
+          font-family: var(--font-sans);
+          line-height: 1.7;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        * {
+          box-sizing: border-box;
+          scroll-behavior: smooth;
+        }
+
+        /* --- HEADER SECTION --- */
+        .timeline-intro {
+          text-align: center;
+          max-width: 800px;
+          margin: 0 auto 60px auto;
+          padding: 80px 20px 0 20px;
+        }
+
+        .timeline-intro .meta-tag {
+          font-size: 0.9rem;
+          letter-spacing: 3px;
+          color: var(--accent-coral);
+          text-transform: uppercase;
+          margin-bottom: 15px;
+          font-weight: 600;
+          display: block;
+        }
+
+        .timeline-intro h1 {
+          font-family: var(--font-serif-body);
+          font-size: 3.2rem;
+          font-weight: 400;
+          margin-bottom: 20px;
+          line-height: 1.2;
+          color: var(--text-dark);
+        }
+
+        .timeline-intro p {
+          font-size: 1.1rem;
+          color: #5C5750;
+        }
+
+        /* --- MAIN TIMELINE TREE (Sesuai Screenshot 198) --- */
+        .timeline-container {
+          position: relative;
+          max-width: 900px;
+          margin: 0 auto;
+          padding-left: 150px;
+          padding-right: 20px;
+          padding-bottom: 80px;
+        }
+
+        /* Garis Vertikal Sejarah */
+        .timeline-container::before {
+          content: '';
+          position: absolute;
+          left: 125px;
+          top: 10px;
+          bottom: 10px;
+          width: 1px;
+          background-color: #DDD9D1;
+        }
+
+        .timeline-node {
+          position: relative;
+          margin-bottom: 45px;
+        }
+
+        /* Penempatan Angka Tahun di Sebelah Kiri Garis */
+        .node-year {
+          position: absolute;
+          left: -150px;
+          top: 0;
+          width: 110px;
+          text-align: right;
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          font-weight: 600;
+          letter-spacing: 0.5px;
+        }
+
+        /* Bulatan kecil di atas garis */
+        .timeline-node::after {
+          content: '';
+          position: absolute;
+          left: -29px;
+          top: 7px;
+          width: 8px;
+          height: 8px;
+          background-color: var(--bg-light);
+          border: 2px solid #A8A49E;
+          border-radius: 50%;
+          z-index: 2;
+        }
+
+        /* --- STYLING HIGHLIGHT UNTUK JATAH ROMA KAMU --- */
+        .timeline-node.highlighted .node-year {
+          color: var(--accent-coral);
+        }
+
+        .timeline-node.highlighted::after {
+          border-color: var(--accent-coral);
+          background-color: var(--accent-coral);
+        }
+
+        /* --- BLOK ISI TEKS KONTEN --- */
+        .node-text-content {
+          padding-left: 10px;
+        }
+
+        .node-text-content .civ-label {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          color: var(--text-muted);
+          font-weight: 600;
+          display: block;
+          margin-bottom: 2px;
+        }
+
+        .node-text-content h4 {
+          font-size: 1.15rem;
+          font-weight: 600;
+          color: var(--text-dark);
+          margin-bottom: 4px;
+        }
+
+        .node-text-content p {
+          font-size: 1rem;
+          color: #5C5750;
+          margin-bottom: 2px;
+        }
+
+        .node-text-content .sub-info {
+          font-size: 0.85rem;
+          color: var(--text-muted);
+          font-style: italic;
+        }
+
+        /* --- RESPONSIVE MOBILE DISPLAY --- */
+        @media (max-width: 768px) {
+          .timeline-container {
+            padding-left: 40px;
+          }
+          .timeline-container::before {
+            left: 20px;
+          }
+          .timeline-node::after {
+            left: -24px;
+          }
+          .node-year {
+            position: relative;
+            left: 0;
+            width: auto;
+            text-align: left;
+            margin-bottom: 4px;
+            display: block;
+          }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="timeline-intro">
+        <span class="meta-tag">Kronologi Dunia</span>
+        <h1>Lintas Zaman dalam Angka</h1>
+        <p>Peta perjalanan waktu peradaban-peradaban besar manusia dari awal mula aksara hingga keruntuhan imperium dunia kuno.</p>
+    </header>
+
+    <div class="timeline-container">
+        
+        <div class="timeline-node">
+            <div class="node-year">~3500 SM</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Mesopotamia</span>
+                <h4>Lahirnya Sistem Tulisan Pertama</h4>
+                <p>Penemuan tulisan Kuneiform dan pembentukan kota-kota awal di lembah Sungai Tigris dan Eufrat.</p>
+                <span class="sub-info">Suku Sumeria</span>
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="node-year">~3100 SM</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Mesir Kuno</span>
+                <h4>Penyatuan Mesir Hulu & Hilir</h4>
+                <p>Firaun Menes menyatukan kedua wilayah, memulai era kejayaan pembangunan Piramida raksasa dan Sphinx.</p>
+                <span class="sub-info">Era Kerajaan Lama</span>
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="node-year">~1900 SM</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Babilonia</span>
+                <h4>Penyusunan Hukum Kode Hammurabi</h4>
+                <p>Penyusunan salah satu undang-undang tertulis tertua di dunia yang menegakkan prinsip hukum universal.</p>
+                <span class="sub-info">Raja Hammurabi</span>
+            </div>
+        </div>
+
+        <div class="timeline-node">
+            <div class="node-year">~800 SM</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Yunani Kuno</span>
+                <h4>Lahirnya Polis & Sistem Demokrasi</h4>
+                <p>Berkembangnya kota otonom seperti Athena dan Sparta, serta peletakan batu pertama ilmu filsafat barat.</p>
+                <span class="sub-info">Zaman Arkaik</span>
+            </div>
+        </div>
+
+        <div class="timeline-node highlighted">
+            <div class="node-year">753 SM</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Roma Kuno</span>
+                <h4>Pendirian Roma oleh Romulus</h4>
+                <p>Awal mula sebuah desa agraris kecil di tepi Sungai Tiber yang kelak menjadi penguasa Mediterania.</p>
+                <span class="sub-info">Romulus (Legendaris)</span>
+            </div>
+        </div>
+
+        <div class="timeline-node highlighted">
+            <div class="node-year">27 SM</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Roma Kuno</span>
+                <h4>Augustus Menjadi Kaisar Pertama</h4>
+                <p>Runtuhnya era Republik dan dimulainya Pax Romana—dua abad kedamaian dan kestabilan hukum.</p>
+                <span class="sub-info">Augustus Caesar</span>
+            </div>
+        </div>
+
+        <div class="timeline-node highlighted">
+            <div class="node-year">476 M</div>
+            <div class="node-text-content">
+                <span class="civ-label">Peradaban Roma Kuno</span>
+                <h4>Jatuhnya Kekaisaran Romawi Barat</h4>
+                <p>Runtuhnya supremasi barat di bawah invasi barbar, menandai akhir Zaman Kuno di Eropa.</p>
+                <span class="sub-info">Romulus Augustulus</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

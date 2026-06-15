@@ -1,0 +1,407 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warisan Peradaban</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    background:#f5f3ef;
+    color:#333;
+}
+
+/* HERO */
+.hero{
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("https://upload.wikimedia.org/wikipedia/commons/6/63/Egyptian_Hieroglyphs.jpg");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero small{
+    color:#c7a66a;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    margin-top:10px;
+    font-size:48px;
+    font-weight:400;
+}
+
+.hero p{
+    margin-top:10px;
+    color:#ddd;
+}
+
+/* SECTION */
+.section{
+    padding:40px 50px;
+}
+
+/* CARD GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.card-header{
+    color:white;
+    padding:12px 15px;
+}
+
+.card-header h3{
+    font-size:18px;
+}
+
+.card-header span{
+    font-size:12px;
+    opacity:.8;
+}
+
+.gold{background:#b8924e;}
+.green{background:#5f8c84;}
+.blue{background:#4d6891;}
+.purple{background:#78568f;}
+.red{background:#a64d3d;}
+
+.card-body{
+    padding:15px;
+}
+
+.item{
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.item:last-child{
+    border-bottom:none;
+}
+
+.item h4{
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.item p{
+    font-size:13px;
+    color:#666;
+}
+
+.read{
+    display:inline-block;
+    margin-top:10px;
+    text-decoration:none;
+    color:#b8924e;
+    font-size:13px;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin:70px 0 40px;
+}
+
+.title small{
+    color:#b8924e;
+    text-transform:uppercase;
+}
+
+.title h2{
+    margin-top:10px;
+    font-size:36px;
+    font-weight:400;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:30px;
+}
+
+.stat-number{
+    font-size:64px;
+    font-weight:300;
+}
+
+.stat small{
+    text-transform:uppercase;
+    color:#999;
+    letter-spacing:1px;
+}
+
+.stat h3{
+    margin:15px 0;
+}
+
+.stat p{
+    color:#666;
+    line-height:1.6;
+}
+
+.blue-text{
+    color:#3c7894;
+}
+
+.gold-text{
+    color:#c49b4b;
+}
+
+.red-text{
+    color:#c05843;
+}
+
+/* FOOTER */
+footer{
+    background:#1f1f1f;
+    color:white;
+    padding:20px;
+    text-align:center;
+    margin-top:50px;
+}
+
+@media(max-width:992px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+    <small>PENINGGALAN DUNIA</small>
+    <h1>Yang Masih Hidup Hingga Kini</h1>
+    <p>Bagaimana lima peradaban kuno membentuk dunia modern</p>
+</section>
+
+<section class="section">
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-header gold">
+                <h3>Mesir Kuno</h3>
+                <span>3000 SM – 30 SM</span>
+            </div>
+
+            <div class="card-body">
+                <div class="item">
+                    <h4>Sistem Kalender 365 Hari</h4>
+                    <p>Fondasi kalender modern yang dipakai hingga saat ini.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Hieroglif</h4>
+                    <p>Salah satu sistem tulisan tertua di dunia.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Arsitektur Monumental</h4>
+                    <p>Menginspirasi desain bangunan hingga era modern.</p>
+                </div>
+
+                <a href="#" class="read">Baca Selengkapnya →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header green">
+                <h3>Mesopotamia</h3>
+                <span>3500 SM – 539 SM</span>
+            </div>
+
+            <div class="card-body">
+                <div class="item">
+                    <h4>Tulisan Paku</h4>
+                    <p>Sistem pencatatan awal dalam sejarah manusia.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Roda</h4>
+                    <p>Teknologi yang mengubah transportasi dunia.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Kode Hammurabi</h4>
+                    <p>Dasar konsep hukum tertulis.</p>
+                </div>
+
+                <a href="#" class="read">Baca Selengkapnya →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header blue">
+                <h3>Sungai Indus</h3>
+                <span>2600 SM – 1900 SM</span>
+            </div>
+
+            <div class="card-body">
+                <div class="item">
+                    <h4>Sistem Drainase Kota</h4>
+                    <p>Model sanitasi kota yang maju untuk masanya.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Perencanaan Kota Grid</h4>
+                    <p>Dasar tata kota modern.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Standarisasi Ukuran</h4>
+                    <p>Konsep pengukuran yang seragam.</p>
+                </div>
+
+                <a href="#" class="read">Baca Selengkapnya →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header purple">
+                <h3>Babilonia</h3>
+                <span>1800 SM – 539 SM</span>
+            </div>
+
+            <div class="card-body">
+                <div class="item">
+                    <h4>Kode Hammurabi</h4>
+                    <p>Salah satu hukum tertulis tertua di dunia.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Matematika & Astronomi</h4>
+                    <p>Konsep 60 menit dan 60 detik.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Zodiak</h4>
+                    <p>Pengamatan langit yang berpengaruh hingga kini.</p>
+                </div>
+
+                <a href="#" class="read">Baca Selengkapnya →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header red">
+                <h3>Roma Kuno</h3>
+                <span>753 SM – 476 M</span>
+            </div>
+
+            <div class="card-body">
+                <div class="item">
+                    <h4>Sistem Jalan Romawi</h4>
+                    <p>Jaringan transportasi yang luas dan efektif.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Beton & Arsitektur Kubah</h4>
+                    <p>Teknik konstruksi yang bertahan ribuan tahun.</p>
+                </div>
+
+                <div class="item">
+                    <h4>Hukum Romawi</h4>
+                    <p>Dasar banyak sistem hukum modern.</p>
+                </div>
+
+                <a href="#" class="read">Baca Selengkapnya →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="title">
+        <small>MASIH RELEVAN HARI INI</small>
+        <h2>Warisan yang Masih Anda Gunakan Hari Ini</h2>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-number blue-text">60</div>
+            <small>Detik & Menit</small>
+
+            <h3>Satuan Waktu Modern</h3>
+
+            <p>
+                Sistem bilangan basis 60 dari Mesopotamia masih
+                digunakan dalam pengukuran waktu modern.
+            </p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number gold-text">365</div>
+            <small>Hari Setahun</small>
+
+            <h3>Kalender 365 Hari</h3>
+
+            <p>
+                Berasal dari pengamatan astronomi Mesir Kuno yang
+                menjadi dasar kalender saat ini.
+            </p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number red-text">150+</div>
+            <small>Negara</small>
+
+            <h3>Sistem Hukum Modern</h3>
+
+            <p>
+                Banyak negara masih mengadopsi prinsip hukum
+                yang berasal dari Romawi Kuno.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2025 Peradaban Kuno
+</footer>
+
+</body>
+</html>
+```
