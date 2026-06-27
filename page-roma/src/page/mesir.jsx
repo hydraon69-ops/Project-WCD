@@ -31,7 +31,7 @@ const figmaEgyptCSS = `
   .hero-section {
     background-color: var(--bg-dark);
     color: var(--bg-light);
-    min-height: 70vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,7 +70,7 @@ const figmaEgyptCSS = `
     flex-wrap: wrap;
     justify-content: center;
     gap: 14px;
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   .hero-navigation a {
@@ -91,14 +91,14 @@ const figmaEgyptCSS = `
 
   .layout-wrapper {
     display: flex;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     position: relative;
   }
 
   .sticky-sidebar {
-    width: 300px;
-    padding: 80px 40px;
+    width: 280px;
+    padding: 80px 30px;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -147,7 +147,8 @@ const figmaEgyptCSS = `
 
   .main-content {
     flex: 1;
-    padding: 80px 100px;
+    padding: 80px 80px 80px 50px;
+    max-width: 1000px;
   }
 
   .chapter-tag {
@@ -287,11 +288,6 @@ const figmaEgyptCSS = `
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s ease;
-  }
-
-  .figma-legacy-card:hover {
-    transform: translateY(-2px);
   }
 
   .legacy-card-header {
@@ -305,7 +301,6 @@ const figmaEgyptCSS = `
     font-weight: 700;
     font-size: 1.15rem;
     color: var(--text-dark);
-    letter-spacing: -0.2px;
   }
 
   .legacy-card-badge {
@@ -316,13 +311,11 @@ const figmaEgyptCSS = `
     border-radius: 4px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
   }
 
   .legacy-card-desc {
     font-size: 0.95rem;
     color: #55504A;
-    line-height: 1.6;
   }
 
   .bottom-pagination {
@@ -338,7 +331,6 @@ const figmaEgyptCSS = `
     display: block;
     margin-bottom: 6px;
     font-weight: 700;
-    letter-spacing: 2px;
   }
 
   .bottom-pagination button {
@@ -350,17 +342,9 @@ const figmaEgyptCSS = `
     font-weight: 400;
     cursor: pointer;
     padding: 0;
-    transition: color 0.2s ease;
-  }
-
-  .bottom-pagination button:hover {
-    color: var(--accent-coral);
   }
 
   @media (max-width: 1024px) {
-    .legacy-grid-layout {
-      grid-template-columns: 1fr;
-    }
     .layout-wrapper {
       flex-direction: column;
     }
@@ -370,13 +354,13 @@ const figmaEgyptCSS = `
       position: relative;
       border-right: none;
       border-bottom: 1px solid rgba(42, 38, 37, 0.1);
-      padding: 40px 20px;
+      padding: 30px;
     }
     .main-content {
       padding: 40px 20px;
     }
-    .hero-section h1 {
-      font-size: 2.6rem;
+    .legacy-grid-layout {
+      grid-template-columns: 1fr;
     }
   }
 `;
@@ -406,15 +390,15 @@ const MesirPage = ({ onNavigate }) => {
   }, []);
 
   const navItems = [
-    { id: 'fakta-pembuka', num: 1, text: 'Fakta Pembuka' },
-    { id: 'umur-panjang', num: 2, text: 'Umur Panjang Peradaban' },
-    { id: 'asal-usul', num: 3, text: 'Asal-Usul & Geografi' },
-    { id: 'tiga-era', num: 4, text: 'Puncak Kejayaan' },
-    { id: 'ilmu-inovasi', num: 5, text: 'Ilmu & Inovasi' },
-    { id: 'agama-kosmologi', num: 6, text: 'Agama & Kosmologi' },
-    { id: 'keruntuhan', num: 7, text: 'Keruntuhan' },
-    { id: 'timeline', num: 8, text: 'Timeline' },
-    { id: 'warisan', num: 9, text: 'Warisan Dunia' },
+    { id: 'fakta-pembuka', num: '01', text: 'Fakta Pembuka' },
+    { id: 'umur-panjang', num: '02', text: 'Umur Panjang Peradaban' },
+    { id: 'asal-usul', num: '03', text: 'Asal-Usul & Geografi' },
+    { id: 'tiga-era', num: '04', text: 'Puncak Kejayaan' },
+    { id: 'ilmu-inovasi', num: '05', text: 'Ilmu & Inovasi' },
+    { id: 'agama-kosmologi', num: '06', text: 'Agama & Kosmologi' },
+    { id: 'keruntuhan', num: '07', text: 'Keruntuhan' },
+    { id: 'timeline', num: '08', text: 'Timeline' },
+    { id: 'warisan', num: '09', text: 'Warisan Dunia' },
   ];
 
   return (
@@ -478,11 +462,11 @@ const MesirPage = ({ onNavigate }) => {
             <span className="chapter-tag">Bab 4 · Dinasti Emas</span>
             <h2>Puncak Kejayaan — Tiga Era Keemasan</h2>
             <div className="sub-chapter-title">Era Kerajaan Lama: Abad Piramida (2686–2181 SM)</div>
-            <p className="body-text">Ketika Firaun Joser naik tahta sekitar 2686 SM, Mesir memasuki era yang kemudian dikenal sebagai Kerajaan Lama — periode ketika manusia pertama kali membangun monumen batu permanen dalam skala yang belum pernah ada sebelumnya. Arsitek jenius bernama Imhotep merancang piramida pertama: Piramida Berundak di Saqqara, yang juga merupakan bangunan batu besar pertama dalam sejarah manusia.</p>
-            <p className="body-text">Puncaknya datang di bawah pemerintahan Firaun Khufu (Cheops) sekitar 2560 SM. Piramida Agung yang dibangunnya di Giza menggunakan lebih dari 2,3 juta balok batu yang masing-masing beratnya antara 2,5 hingga 80 ton. Selama lebih dari 3.800 tahun, Piramida Agung Giza tetap menjadi bangunan tertinggi di muka bumi — sebuah rekor yang baru dilampaui pada tahun 1311 M oleh Katedral Lincoln di Inggris. Di kompleks yang sama, Sfinks Agung berdiri sebagai penjaga — patung terbesar dari zaman kuno, dengan panjang 73 meter dan tinggi 20 meter, dipahat langsung dari batu kapur alami. Sfinks adalah simbol kekuatan dan kearifan firaun: tubuh singa yang kuat, kepala manusia yang bijaksana.</p>
+            <p className="body-text">Ketika Firaun Joser naik tahta sekitar 2686 SM, Mesir memasuki era yang kemudian dikenal sebagai Kerajaan Lama — periode ketika manusia pertama kali membangun monumen batu permanen dalam skala yang belum pernah ada sebelumnya. Arsitek jenius bernama Imhotep merancang piramida pertama: Piramida Berundak di Saqqara, yang juga merupakan bangunan batu besar pertama dalam sejarah manusia. Puncaknya datang di bawah pemerintahan Firaun Khufu (Cheops) sekitar 2560 SM. Piramida Agung yang dibangunnya di Giza menggunakan lebih dari 2,3 juta balok batu yang masing-masing beratnya antara 2,5 hingga 80 ton. Selama lebih dari 3.800 tahun, Piramida Agung Giza tetap menjadi bangunan tertinggi di muka bumi — sebuah rekor yang baru dilampaui pada tahun 1311 M oleh Katedral Lincoln di Inggris. Di kompleks yang sama, Sfinks Agung berdiri sebagai penjaga — patung terbesar dari zaman kuno, dengan panjang 73 meter dan tinggi 20 meter, dipahat langsung dari batu kapur alami. Sfinks adalah simbol kekuatan dan kearifan firaun: tubuh singa yang kuat, kepala manusia yang bijaksana.</p>
+            
             <div className="sub-chapter-title">Era Kerajaan Baru: Mesir sebagai Kekuatan Militer (1550–1070 SM)</div>
-            <p className="body-text">Setelah periode pergolakan yang ditandai dengan invasi Bangsa Hiksos dari timur, Raja Ahmose I membebaskan Mesir dan memulai era yang disebut Kerajaan Baru — periode ketika Mesir mengalami kebangkitan militer dan kultural yang luar biasa. Pada masa ini, tentara Mesir tidak lagi hanya bertahan; mereka melancarkan ekspedisi dan penaklukan ke Nubia di selatan, Levant di utara, dan Libya di barat.</p>
-            <p className="body-text">Era ini melahirkan beberapa nama paling ikonik dalam sejarah: Ramesses II (Ramesses Agung), yang memerintah selama 66 tahun, membangun lebih banyak kuil and monumen dari firaun manapun, dan menandatangani Perjanjian Kadesh pada 1247 SM — dokumen perjanjian damai tertua yang diketahui dan tersimpan dalam sejarah manusia. Pada era ini juga muncul Hatshepsut — salah satu dari sedikit perempuan yang memerintah Mesir sebagai firaun penuh, dan yang membangun kuil-kuil paling elegan di Deir el-Bahari.</p>
+            <p className="body-text">Setelah periode pergolakan yang ditandai dengan invasi Bangsa Hiksos dari timur, Raja Ahmose I membebaskan Mesir dan memulai era yang disebut Kerajaan Baru — periode ketika Mesir mengalami kebangkitan militer dan kultural yang luar biasa. Pada masa ini, tentara Mesir tidak lagi hanya bertahan; mereka melancarkan ekspedisi dan penaklukan ke Nubia di selatan, Levant di utara, dan Libya di barat. Era ini melahirkan beberapa nama paling ikonik dalam sejarah: Ramesses II (Ramesses Agung), yang memerintah selama 66 tahun, membangun lebih banyak kuil dan monumen dari firaun manapun, dan menandatangani Perjanjian Kadesh pada 1247 SM — dokumen perjanjian damai tertua yang diketahui dan tersimpan dalam sejarah manusia. Pada era ini juga muncul Hatshepsut — salah satu dari sedikit perempuan yang memerintah Mesir sebagai firaun penuh, dan yang membangun kuil-kuil paling elegan di Deir el-Bahari.</p>
+            
             <div className="sub-chapter-title">Hieroglif dan Papirus: Revolusi Tulis</div>
             <p className="body-text">Salah satu kontribusi terbesar Mesir untuk peradaban manusia adalah sistem tulisan hieroglif — sistem yang menggunakan gambar dan simbol untuk merepresentasikan suara, kata, dan konsep abstrak. Dengan lebih dari 700 simbol yang diketahui, hieroglif bukan sekadar seni; ia adalah sistem administratif yang memungkinkan Mesir mendokumentasikan hukum, transaksi, sejarah, dan astronomi. Papirus — tanaman yang tumbuh di tepian Nil — menjadi medium tulisan pertama yang ringan, fleksibel, dan bisa dibawa bepergian. Gulungan papirus yang diekspor ke seluruh Mediterania kuno menjadi komoditas intelektual yang sangat berharga, dan kata 'paper' (kertas) dalam bahasa Inggris berasal langsung dari kata 'papyrus'.</p>
           </section>
@@ -494,8 +478,7 @@ const MesirPage = ({ onNavigate }) => {
             <div className="sub-chapter-title">Matematika</div>
             <p className="body-text">Papirus Rhind (sekitar 1650 SM) adalah salah satu dokumen matematika tertua yang diketahui — berisi 84 soal matematika mencakup aritmatika, geometri, dan penggunaan pecahan. Orang Mesir mengetahui nilai Pi (diperkirakan 3,16) dan menggunakan geometri untuk mengukur ulang lahan pertanian setelah banjir Nil setiap tahunnya.</p>
             <div className="sub-chapter-title">Kalender & Kedokteran</div>
-            <p className="body-text">Mesir mengembangkan kalender 365 hari berdasarkan siklus banjir Nil dan kemunculan bintang Sirius — kalender yang kemudian diadopsi oleh Romawi dan menjadi fondasi kalender Gregorian yang digunakan seluruh dunia hingga hari ini.</p>
-            <p className="body-text">Papirus Ebers (sekitar 1550 SM) berisi lebih dari 700 formula obat-obatan dan prosedur medis. Dokter Mesir memiliki spesialisasi — ada dokter gigi, dokter mata, dan dokter tulang. Mereka juga mengembangkan teknik pembedahan dan pemahaman dasar tentang anatomi tubuh manusia melalui praktik mumifikasi.</p>
+            <p className="body-text">Mesir mengembangkan kalender 365 hari berdasarkan siklus banjir Nil and kemunculan bintang Sirius — kalender yang kemudian diadopsi oleh Romawi dan menjadi fondasi kalender Gregorian yang digunakan seluruh dunia hingga hari ini. Papirus Ebers (sekitar 1550 SM) berisi lebih dari 700 formula obat-obatan dan prosedur medis. Dokter Mesir memiliki spesialisasi — ada dokter gigi, dokter mata, dan dokter tulang. Mereka juga mengembangkan teknik pembedahan dan pemahaman dasar tentang anatomi tubuh manusia melalui praktik mumifikasi.</p>
             <div className="sub-chapter-title">Arsitektur dan Rekayasa</div>
             <p className="body-text">Pembangunan piramida memerlukan pemahaman tentang mekanika, matematika terapan, logistik, dan manajemen tenaga kerja dalam skala yang tidak tertandingi. Sistem kanal dan bendungan yang dibangun untuk mengatur banjir Nil adalah salah satu proyek rekayasa sipil pertama dalam sejarah.</p>
           </section>
@@ -503,8 +486,7 @@ const MesirPage = ({ onNavigate }) => {
           <section id="agama-kosmologi">
             <span className="chapter-tag">Bab 6 · Harmoni Ma'at</span>
             <h2>Agama, Kosmologi, dan Konsep Ma'at</h2>
-            <p className="body-text">Tidak ada aspek kehidupan Mesir Kuno yang tidak dipengaruhi agama. Berbeda dari banyak peradaban lain yang memisahkan dunia fisik dari dunia spiritual, bagi orang Mesir keduanya adalah satu kesatuan: alam semesta adalah ekspresi kehendak para dewa, dan tugas manusia adalah hidup selaras dengannya.</p>
-            <p className="body-text">Prinsip utama agama Mesir adalah Ma'at — sebuah konsep yang mencakup kebenaran, keadilan, keseimbangan, dan harmoni kosmik sekaligus. Ma'at bukan hanya nilai moral individual; ia adalah hukum alam yang menopang seluruh ketertiban alam semesta. Firaun berkewajiban menegakkan Ma'at di bumi, dan setiap warga negara berkewajiban hidup sesuai prinsip-prinsipnya agar alam semesta tetap berjalan dengan baik.</p>
+            <p className="body-text">Tidak ada aspek kehidupan Mesir Kuno yang tidak dipengaruhi agama. Berbeda dari banyak peradaban lain yang memisahkan dunia fisik dari dunia spiritual, bagi orang Mesir keduanya adalah satu kesatuan: alam semesta adalah ekspresi kehendak para dewa, dan tugas manusia adalah hidup selaras dengannya. Prinsip utama agama Mesir adalah Ma'at — sebuah konsep yang mencakup kebenaran, keadilan, keseimbangan, dan harmoni kosmik sekaligus. Ma'at bukan hanya nilai moral individual; ia adalah hukum alam yang menopang seluruh ketertiban alam semesta. Firaun berkewajiban menegakkan Ma'at di bumi, dan setiap warga negara berkewajiban hidup sesuai prinsip-prinsipnya agar alam semesta tetap berjalan dengan baik.</p>
             <p className="body-text">Para dewa Mesir berjumlah ratusan — masing-masing menguasai aspek tertentu dari alam dan kehidupan. Dewa matahari Ra (atau Atum-Ra) adalah dewa tertinggi yang dipercaya menciptakan dunia dari kekacauan primordial. Osiris adalah dewa kematian dan kebangkitan; Isis, istrinya, adalah dewi sihir dan penyembuhan; Horus, putra mereka, adalah dewa langit yang melambangkan kekuasaan firaun di bumi; dan Anubis adalah dewa berwajah serigala yang mengantar jiwa ke alam baka.</p>
             <p className="body-text">Konsep kehidupan setelah kematian dalam agama Mesir sangat kaya dan kompleks. Jiwa manusia dianggap terdiri dari sembilan elemen berbeda. Setelah kematian, jiwa menjalani perjalanan panjang menuju Hall of Truth (Aula Kebenaran), di mana jantungnya ditimbang dengan bulu kebenaran di hadapan Osiris. Jika jantung lebih ringan dari bulu itu — artinya orang itu hidup dengan Ma'at — ia diizinkan memasuki Field of Reeds (Ladang Alang-alang), surga abadi yang merupakan cermin kehidupan di bumi tanpa penyakit, penderitaan, dan kematian. Inilah mengapa mumifikasi begitu penting: tubuh fisik harus diawetkan agar jiwa memiliki tempat kembali. Dan inilah mengapa piramida dibangun: bukan sebagai pamer kekuasaan semata, melainkan sebagai kendaraan jiwa raja untuk naik ke surga dan bergabung dengan dewa-dewa.</p>
           </section>
@@ -512,72 +494,52 @@ const MesirPage = ({ onNavigate }) => {
           <section id="keruntuhan">
             <span className="chapter-tag">Bab 7 · Akhir Dinasti</span>
             <h2>Keruntuhan — Tiga Ribu Tahun yang Berakhir</h2>
-            <p className="body-text">Mesir tidak runtuh dalam satu malam. Selama lebih dari 3.000 tahun, ia bangkit dan jatuh berkali-kali, selalu menemukan cara untuk menyatukan diri kembali — hingga tekanan dari luar dan dalam akhirnya terlalu besar untuk ditanggung. Proses keruntuhan dimulai dengan Periode Menengah Ketiga, ketika Mesir kembali terpecah antara Mesir Hulu yang dikuasai pendeta Thebes dan Mesir Hilir yang dikuasai pedagang dan penguasa asing. Bangsa Kush dari selatan kemudian menginvasi, diikuti Assyria dari timur, kemudian Persia di bawah Cambyses II yang menaklukkan Mesir pada 525 SM.</p>
-            <p className="body-text">Momen terakhir kejayaan Mesir datang ketika Alexander Agung dari Makedonia menaklukkan Mesir pada 332 SM — namun anehnya, orang Mesir menyambutnya sebagai pembebas dari penjajahan Persia. Alexander dinyatakan sebagai firaun yang sah dan anak dewa Ra. Setelah kematian Alexander, dinasti Ptolomeus memerintah Mesir selama tiga abad — memadukan tradisi Mesir dengan kebudayaan Yunani dalam era Helenistik yang produktif secara intelektual. Bab terakhir ditulis oleh Cleopatra VII — firaun terakhir yang memerintah Mesir sebagai entitas merdeka. Ketika ia meninggal pada 30 SM, Mesir menjadi provinsi Kekaisaran Romawi.</p>
+            <p className="body-text">Mesir tidak runtuh dalam satu malam. Proses keruntuhan dimulai dengan Periode Menengah Ketiga, ketika Mesir kembali terpecah antara Mesir Hulu yang dikuasai pendeta Thebes dan Mesir Hilir yang dikuasai pedagang dan penguasa asing. Bangsa Kush dari selatan kemudian menginvasi, diikuti Assyria dari timur, kemudian Persia di bawah Cambyses II yang menaklukkan Mesir pada 525 SM. Momen terakhir kejayaan Mesir datang ketika Alexander Agung dari Makedonia menaklukkan Mesir pada 332 SM. Setelah kematian Alexander, dinasti Ptolomeus memerintah Mesir selama tiga abad. Bab terakhir ditulis oleh Cleopatra VII — firaun terakhir yang memerintah Mesir sebagai entitas merdeka. Ketika ia meninggal pada 30 SM, Mesir menjadi provinsi Kekaisaran Romawi. Namun warisan Mesir tidak ikut mati: agama, arsitektur, kalender, dan ilmu pengetahuannya terus mengalir ke dalam peradaban Romawi, Kristen, dan Islam — dan dari sana ke seluruh dunia modern.</p>
           </section>
 
           <section id="timeline">
             <span className="chapter-tag">Bab 8 · Lintas Waktu</span>
             <h2>Timeline Peradaban Mesir Kuno</h2>
             <div className="figma-timeline">
-              <div className="timeline-node-item"><div className="node-left-year">~3100 SM</div><div className="node-right-content"><h4>Penyatuan Entitas Tunggal</h4><p>Raja Narmer menyatukan Mesir Hulu dan Hilir — lahirnya Mesir sebagai entitas tunggal (Raja Narmer / Menes).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~2600 SM</div><div className="node-right-content"><h4>Era Keemasan Pertama</h4><p>Dinasti Lama dimulai, era keemasan pertama, pembangunan Piramida Giza (Firaun Joser, Khufu).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~2560 SM</div><div className="node-right-content"><h4>Pembangunan Monumen Akbar</h4><p>Piramida Agung Giza dan Sfinks dibangun — rekayasa terbesar sepanjang masa (Firaun Khufu).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~2055 SM</div><div className="node-right-content"><h4>Penyatuan Periode Menengah</h4><p>Mesir bersatu kembali setelah Periode Menengah Pertama (Mentuhotep II).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~1550 SM</div><div className="node-right-content"><h4>Kebangkitan Kekuatan Militer</h4><p>Kerajaan Baru: Mesir menjadi kekuatan militer terbesar di Mediterania (Ahmose I).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~1247 SM</div><div className="node-right-content"><h4>Diplomasi Perjanjian Kadesh</h4><p>Perjanjian Kadesh — perjanjian damai tertua yang diketahui dalam sejarah (Ramesses II).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~332 SM</div><div className="node-right-content"><h4>Ekspedisi Alexander Agung</h4><p>Alexander Agung menaklukkan Mesir tanpa perlawanan (Alexander, Ptolomeus I).</p></div></div>
-              <div className="timeline-node-item"><div className="node-left-year">~30 SM</div><div className="node-right-content"><h4>Akhir Era Firaun</h4><p>Cleopatra VII wafat, Mesir menjadi provinsi Romawi, akhir era Firaun (Cleopatra VII).</p></div></div>
+              <div className="timeline-node-item"><div className="node-left-year">~3100 SM</div><div className="node-right-content"><h4>Penyatuan Entitas Tunggal</h4><p>Raja Narmer menyatukan Mesir Hulu dan Hilir.</p></div></div>
+              <div className="timeline-node-item"><div className="node-left-year">~2600 SM</div><div className="node-right-content"><h4>Era Keemasan Pertama</h4><p>Dinasti Lama dimulai, pembangunan Piramida Giza.</p></div></div>
+              <div className="timeline-node-item"><div className="node-left-year">~2560 SM</div><div className="node-right-content"><h4>Pembangunan Monumen Akbar</h4><p>Piramida Agung Giza dan Sfinks dibangun.</p></div></div>
+              <div className="timeline-node-item"><div className="node-left-year">~1550 SM</div><div className="node-right-content"><h4>Kebangkitan Militer</h4><p>Kerajaan Baru: Mesir menjadi kekuatan militer terbesar.</p></div></div>
+              <div className="timeline-node-item"><div className="node-left-year">~30 SM</div><div className="node-right-content"><h4>Akhir Era Firaun</h4><p>Cleopatra VII wafat, Mesir menjadi provinsi Romawi.</p></div></div>
             </div>
           </section>
 
           <section id="warisan">
             <span className="chapter-tag">Bab 9 · Peninggalan Abadi</span>
-            <h2>Peninggalan and Warisan Dunia</h2>
-            <p className="body-text">Dari semua peradaban kuno, Mesir adalah yang paling hadir secara fisik dalam kesadaran modern. Piramida ada di uang kertas Amerika Serikat. Simbol Mata Horus (Eye of Ra) muncul di perhiasan dan tattoo di seluruh dunia. Kalender yang kita gunakan setiap hari adalah warisan langsung dari pengamatan astronomi para pendeta Mesir.</p>
-            
+            <h2>Peninggalan dan Warisan Dunia</h2>
             <div className="legacy-grid-layout">
               <div className="figma-legacy-card">
                 <div className="legacy-card-header">
                   <div className="legacy-card-title">Sistem Kalender</div>
                   <span className="legacy-card-badge">Warisan</span>
                 </div>
-                <p className="legacy-card-desc">Kalender 365 hari berdasarkan banjir Nil dan orbit matahari yang menjadi fondasi kalender Gregorian di dunia modern.</p>
+                <p className="legacy-card-desc">Kalender 365 hari berdasarkan banjir Nil dan orbit matahari.</p>
               </div>
               <div className="figma-legacy-card">
                 <div className="legacy-card-header">
                   <div className="legacy-card-title">Hieroglif</div>
                   <span className="legacy-card-badge">Warisan</span>
                 </div>
-                <p className="legacy-card-desc">Sistem tulisan 700+ simbol terdokumentasi lengkap yang mendasari ilmu linguistik dan arkeologi kuno.</p>
+                <p className="legacy-card-desc">Sistem tulisan 700+ simbol terdokumentasi lengkap.</p>
               </div>
               <div className="figma-legacy-card">
                 <div className="legacy-card-header">
                   <div className="legacy-card-title">Arsitektur Monumental</div>
                   <span className="legacy-card-badge">Warisan</span>
                 </div>
-                <p className="legacy-card-desc">Piramida Giza, Sfinks, Kuil Karnak, dan Abu Simbel yang menyusun prinsip rekayasa sipil modern.</p>
-              </div>
-              <div className="figma-legacy-card">
-                <div className="legacy-card-header">
-                  <div className="legacy-card-title">Mumifikasi</div>
-                  <span className="legacy-card-badge">Warisan</span>
-                </div>
-                <p className="legacy-card-desc">Teknik pengawetan dengan natron, resin, dan linen yang menjadi cikal bakal ilmu patologi serta forensik.</p>
+                <p className="legacy-card-desc">Piramida Giza, Sfinks, Kuil Karnak, dan Abu Simbel.</p>
               </div>
               <div className="figma-legacy-card">
                 <div className="legacy-card-header">
                   <div className="legacy-card-title">Hukum & Perjanjian</div>
                   <span className="legacy-card-badge">Warisan</span>
                 </div>
-                <p className="legacy-card-desc">Perjanjian Kadesh sebagai wujud dokumen diplomatik dan model perjanjian damai internasional pertama di bumi.</p>
-              </div>
-              <div className="figma-legacy-card">
-                <div className="legacy-card-header">
-                  <div className="legacy-card-title">Matematika & Geometri</div>
-                  <span className="legacy-card-badge">Warisan</span>
-                </div>
-                <p className="legacy-card-desc">Papirus Rhind berisi rumusan aritmatika, pecahan, dan kalkulasi geometri pengukuran tanah terapan.</p>
+                <p className="legacy-card-desc">Perjanjian Kadesh sebagai wujud dokumen diplomatik tertua.</p>
               </div>
             </div>
 
@@ -586,10 +548,9 @@ const MesirPage = ({ onNavigate }) => {
               <p className="body-text">Meskipun ribuan tahun telah berlalu, Mesir masih belum selesai bercerita. Peradaban yang membangun untuk keabadian — yang mengukir kalimat di batu bukan di kayu, yang membangun piramida bukan rumah panggung — mengajarkan bahwa investasi paling bernilai bukan untuk hari ini, melainkan untuk ribuan tahun yang akan datang.</p>
             </div>
 
-            {/* BAGIAN TERKAIT FIGMA INTERAKTIF */}
-            <div className="bottom-pagination">
+            <div className="bottom-pagination" style={{ marginTop: '50px' }}>
               <span>Selanjutnya</span>
-              <button onClick={() => onNavigate('romawi')}>Roma Kuno / ~753 SM →</button>
+              <button onClick={() => onNavigate('romawi')} style={{ cursor: 'pointer' }}>Roma Kuno / ~753 SM →</button>
             </div>
           </section>
         </main>

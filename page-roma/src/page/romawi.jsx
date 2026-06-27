@@ -28,11 +28,10 @@ const figmaDesignCSS = `
     padding: 0;
   }
 
-  /* --- HERO HEADER (Sesuai Link Figma) --- */
   .hero-section {
     background-color: var(--bg-dark);
     color: var(--bg-light);
-    min-height: 70vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,7 +70,7 @@ const figmaDesignCSS = `
     flex-wrap: wrap;
     justify-content: center;
     gap: 14px;
-    max-width: 900px;
+    max-width: 1000px;
   }
 
   .hero-navigation a {
@@ -90,18 +89,16 @@ const figmaDesignCSS = `
     color: white;
   }
 
-  /* --- CORE GRID LAYOUT --- */
   .layout-wrapper {
     display: flex;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     position: relative;
   }
 
-  /* Sticky Sidebar Kiri (Sesuai Screenshot 204) */
   .sticky-sidebar {
-    width: 300px;
-    padding: 80px 40px;
+    width: 280px;
+    padding: 80px 30px;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -148,10 +145,10 @@ const figmaDesignCSS = `
     font-weight: 700;
   }
 
-  /* Area Konten Kanan */
   .main-content {
     flex: 1;
-    padding: 80px 100px;
+    padding: 80px 80px 80px 50px;
+    max-width: 1000px;
   }
 
   .chapter-tag {
@@ -218,7 +215,6 @@ const figmaDesignCSS = `
     letter-spacing: -0.3px;
   }
 
-  /* --- TIMELINE COMPONENT (Sesuai Ekspektasi Figma) --- */
   .figma-timeline {
     position: relative;
     padding-left: 140px;
@@ -277,7 +273,6 @@ const figmaDesignCSS = `
     color: var(--text-muted);
   }
 
-  /* --- WARISAN SECTION (GRID 2 KOLOM SESUAI FIGMA) --- */
   .legacy-grid-layout {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -293,11 +288,6 @@ const figmaDesignCSS = `
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s ease;
-  }
-
-  .figma-legacy-card:hover {
-    transform: translateY(-2px);
   }
 
   .legacy-card-header {
@@ -311,7 +301,6 @@ const figmaDesignCSS = `
     font-weight: 700;
     font-size: 1.15rem;
     color: var(--text-dark);
-    letter-spacing: -0.2px;
   }
 
   .legacy-card-badge {
@@ -322,13 +311,11 @@ const figmaDesignCSS = `
     border-radius: 4px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
   }
 
   .legacy-card-desc {
     font-size: 0.95rem;
     color: #55504A;
-    line-height: 1.6;
   }
 
   .bottom-pagination {
@@ -344,26 +331,20 @@ const figmaDesignCSS = `
     display: block;
     margin-bottom: 6px;
     font-weight: 700;
-    letter-spacing: 2px;
   }
 
-  .bottom-pagination a {
+  .bottom-pagination button {
+    background: none;
+    border: none;
     color: var(--text-dark);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 700;
-    transition: color 0.2s ease;
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 400;
+    cursor: pointer;
+    padding: 0;
   }
 
-  .bottom-pagination a:hover {
-    color: var(--accent-coral);
-  }
-
-  /* --- RESPONSIVE UNTUK LAYAR MOBILE --- */
   @media (max-width: 1024px) {
-    .legacy-grid-layout {
-      grid-template-columns: 1fr;
-    }
     .layout-wrapper {
       flex-direction: column;
     }
@@ -373,18 +354,18 @@ const figmaDesignCSS = `
       position: relative;
       border-right: none;
       border-bottom: 1px solid rgba(42, 38, 37, 0.1);
-      padding: 40px 20px;
+      padding: 30px;
     }
     .main-content {
       padding: 40px 20px;
     }
-    .hero-section h1 {
-      font-size: 2.6rem;
+    .legacy-grid-layout {
+      grid-template-columns: 1fr;
     }
   }
 `;
 
-const RomawiPage = () => {
+const RomawiPage = ({ onNavigate }) => {
   const [activeSection, setActiveSection] = useState('latar-belakang');
 
   useEffect(() => {
@@ -409,23 +390,21 @@ const RomawiPage = () => {
   }, []);
 
   const navItems = [
-    { id: 'latar-belakang', num: 1, text: 'Latar Belakang' },
-    { id: 'urgensi', num: 2, text: 'Mengapa Penting?' },
-    { id: 'asal-usul', num: 3, text: 'Asal-Usul & Geografis' },
-    { id: 'puncak-kejayaan', num: 4, text: 'Puncak Kejayaan' },
-    { id: 'ilmu-inovasi', num: 5, text: 'Ilmu & Budaya' },
-    { id: 'agama-sosial', num: 6, text: 'Kepercayaan & Sosial' },
-    { id: 'keruntuhan', num: 7, text: 'Keruntuhan' },
-    { id: 'timeline', num: 8, text: 'Timeline' },
-    { id: 'warisan', num: 9, text: 'Peninggalan & Warisan' },
+    { id: 'latar-belakang', num: '01', text: 'Latar Belakang' },
+    { id: 'urgensi', num: '02', text: 'Mengapa Penting?' },
+    { id: 'asal-usul', num: '03', text: 'Asal-Usul & Geografis' },
+    { id: 'puncak-kejayaan', num: '04', text: 'Puncak Kejayaan' },
+    { id: 'ilmu-inovasi', num: '05', text: 'Ilmu & Budaya' },
+    { id: 'agama-sosial', num: '06', text: 'Kepercayaan & Sosial' },
+    { id: 'keruntuhan', num: '07', text: 'Keruntuhan' },
+    { id: 'timeline', num: '08', text: 'Timeline' },
+    { id: 'warisan', num: '09', text: 'Peninggalan & Warisan' },
   ];
 
   return (
     <div className="roma-figma-container">
-      {/* Memasukkan variabel CSS dengan aman */}
       <style dangerouslySetInnerHTML={{ __html: figmaDesignCSS }} />
 
-      {/* 1. HERO HEADER BANNER */}
       <header className="hero-section">
         <div className="hero-tag">Roma Kuno · ~753 SM – 476 M</div>
         <h1>Romawi Kuno: Sang Imperium yang Mengukir Sejarah Dunia</h1>
@@ -440,10 +419,7 @@ const RomawiPage = () => {
         </nav>
       </header>
 
-      {/* CORE GRID GRID LAYOUT */}
       <div className="layout-wrapper">
-        
-        {/* 2. STICKY SIDEBAR NAVIGATION */}
         <aside className="sticky-sidebar">
           <div className="sidebar-header">Isi Halaman</div>
           <ul className="nav-list">
@@ -456,18 +432,14 @@ const RomawiPage = () => {
           </ul>
         </aside>
 
-        {/* 3. AREAS KONTEN MATERI UTAMA */}
         <main className="main-content">
-          
           <section id="latar-belakang">
             <span className="chapter-tag">Bab 1 · Latar Belakang</span>
             <h2>Sebuah Fondasi Peradaban Barat</h2>
-            
             <div className="quote-highlight-box">
               <h4>Fakta Pembuka</h4>
               <p>Bayangkan seekor serigala betina yang sedang menyusui dua bayi manusia di tepi Sungai Tiber. Itulah legenda pendirian Roma pada 753 SM — Romulus dan Remus, anak kembar dewa perang Mars, yang kelak satu membunuh saudaranya sendiri demi mendirikan kota yang akan menguasai sebagian besar dunia yang dikenal saat itu. Fakta yang lebih mengejutkan lagi: dari sebuah pemukiman kecil di tujuh bukit, Roma berkembang menjadi imperium yang membentang dari Skotlandia hingga Mesopotamia, dengan jalan-jalan batu yang sebagian masih dipakai hingga hari ini, lebih dari dua milenium kemudian.</p>
             </div>
-
             <p className="body-text">Kota itu lahir dari darah, ambisi, dan kejeniusan adaptasi. Dalam waktu kurang dari 500 tahun, Roma berubah dari desa petani Latin menjadi kekuatan yang mengalahkan Kartago, Yunani, dan Mesir. Mereka bukan hanya penakluk; mereka adalah pembangun. Beton yang mereka ciptakan masih menjadi rahasia kekuatan Colosseum dan Pantheon — struktur yang bertahan gempa, banjir, dan perang. Saat Eropa masih gelap di Zaman Pertengahan, reruntuhan Romawi menjadi inspirasi bagi Renaisans. Hingga kini, bahasa kita sehari-hari — dari "senat" hingga "kalender" — adalah warisan langsung mereka.</p>
             <p className="body-text">Peradaban ini tidak sekadar hilang; ia menyatu dalam DNA peradaban Barat. Setiap kali kita menyebut "republik", "kaisar", atau bahkan bulan Juli dan Agustus, kita sedang mengucapkan nama Julius Caesar dan Augustus. Roma bukanlah masa lalu yang mati. Ia adalah fondasi yang masih menopang dunia modern.</p>
           </section>
@@ -507,24 +479,23 @@ const RomawiPage = () => {
           <section id="agama-sosial">
             <span className="chapter-tag">Bab 6 · Sistem Kepercayaan & Tatanan Sosial</span>
             <h2>Politeisme Olimpus Hingga Kebangkitan Kekristenan</h2>
-            <p className="body-text">Agama Romawi politeis, mengadopsi dewa-dewa Yunani dengan nama Latin: Jupiter (Zeus), Mars (Ares), Venus (Aphrodite). Nama planet hingga kini berasal dari dewa mereka. Kuil-kuil megah menjadi pusat ritual negara. Struktur sosial tegas: patrician (keturunan pendiri) menguasai Senat, sementara plebeian (rakyat biasa) berjuang melalui "Perjuangan Ordo" hingga mendapat hak tribun. Budak — hasil perang — menjadi tulang punggung ekonomi, tapi juga sumber ketegangan. Kristen muncul dari Palestina dan menyebar cepat meski dianiaya Nero pasca kebakaran besar Roma (64 M). Justru penganiayaan itu yang membuat iman semakin kuat. Konstantin pada 313 M menjadikannya agama resmi, mengubah sejarah dunia.</p>
+            <p className="body-text">Agama Romawi politeis, mengadopsi dewa-dewa Yunani dengan nama Latin: Jupiter (Zeus), Mars (Ares), Venus (Aphrodite). Nama planet hingga kini berasal dari dewa mereka. Kuil-kuil megah menjadi pusat ritual negara. Tatanan sosial tegas: patrician (keturunan pendiri) menguasai Senat, sementara plebeian (rakyat biasa) berjuang melalui "Perjuangan Ordo" hingga mendapat hak tribun. Budak — hasil perang — menjadi tulang pona perekonomian, tapi juga sumber ketegangan. Kristen muncul dari Palestina dan menyebar cepat meski dianiaya Nero pasca kebakaran besar Roma (64 M). Justru penganiayaan itu yang membuat iman semakin kuat. Konstantin pada 313 M menjadikannya agama resmi, mengubah sejarah dunia.</p>
           </section>
 
           <section id="keruntuhan">
             <span className="chapter-tag">Bab 7 · Keruntuhan</span>
             <h2>Degradasi Internal dan Serbuan Bangsa Barbar</h2>
-            <p className="body-text">Keruntuhan bukan karena satu serangan barbar, melainkan kombinasi mematikan faktor internal dan eksternal. Setelah kematian Marcus Aurelius (180 M), Commodus membawa dekadensi. Abad ke-3 menyaksikan 22 kaisar dalam 50 tahun — kebanyakan dibunuh tentara sendiri. Diocletian mencoba reformasi dengan Tetrarki, tapi pembagian kekaisaran menjadi Barat dan Timur justru memperlemah Barat. Invasi barbar (Visigoth, Vandals, Huns di bawah Attila) semakin sering. Ekonomi runtuh karena inflasi, pajak berat, dan pertanian yang ditinggalkan. Korupsi, kesenjangan kaya-miskin, dan hilangnya semangat sipil mempercepat kejatuhan. Puncaknya: pada 476 M, Odoacer — pemimpin Jermanik — menurunkan Romulus Augustulus, kaisar remaja terakhir. Kekaisaran Romawi Barat resmi berakhir. Timur bertahan sebagai Bizantium hingga 1453.</p>
+            <p className="body-text">Keruntuhan bukan karena satu serangan barbar, melainkan kombinasi mematikan faktor internal dan eksternal. Setelah kematian Marcus Aurelius (180 M), Commodus membawa dekadensi. Abad ke-3 menyaksikan 22 kaisar dalam 50 tahun — kebanyakan dibunuh tentara sendiri. Diocletian mencoba reformasi dengan Tetrarki, tapi pembagian kekaisaran menjadi Barat dan Timur justru memperlemah Barat. Invasi barbar (Visigoth, Vandals, Huns di bawah Attila) semakin sering. Ekonomi runtuh karena inflasi, pajak berat, dan pertanian yang ditinggalkan. Korupsi, kesenjangan kaya-miskin, dan hilangnya semangat sipil mempercepat kejatuhan. Puncaknya: pada 476 M, Odoacer — pemimpin Jermanik — menurunkan Romulus Augustulus, kaisar remaja terakhir. Kekaisaran Romawi Barat resmi berakhir. Timur bertahan sebagai Bizantium hingga 1453. Namun warisan Mesir tidak ikut mati: agama, arsitektur, kalender, dan ilmu pengetahuannya terus mengalir ke dalam peradaban Romawi, Kristen, dan Islam — dan dari sana ke seluruh dunia modern.</p>
           </section>
 
           <section id="timeline">
             <span className="chapter-tag">Bab 8 · Lintas Zaman dalam Angka</span>
             <h2>Garis Waktu Perjalanan Imperium Roma</h2>
-            
             <div className="figma-timeline">
               <div className="timeline-node-item"><div className="node-left-year">753 SM</div><div className="node-right-content"><h4>Pendirian Roma oleh Romulus</h4><p>Awal berdirinya tonggak sejarah peradaban Roma.</p></div></div>
               <div className="timeline-node-item"><div className="node-left-year">509 SM</div><div className="node-right-content"><h4>Berdirinya Republik</h4><p>Berakhirnya kekuasaan monarki berganti urusan rakyat.</p></div></div>
               <div className="timeline-node-item"><div className="node-left-year">264–146 SM</div><div className="node-right-content"><h4>Perang Punisia</h4><p>Kemenangan besar mengalahkan dominasi Kartago.</p></div></div>
-              <div className="timeline-item-item"><div className="timeline-node-item"><div className="node-left-year">49 SM</div><div className="node-right-content"><h4>Caesar menyeberangi Rubicon</h4><p>Langkah militer berani Julius Caesar memicu perang saudara.</p></div></div></div>
+              <div className="timeline-node-item"><div className="node-left-year">49 SM</div><div className="node-right-content"><h4>Caesar menyeberangi Rubicon</h4><p>Langkah militer berani Julius Caesar memicu perang saudara.</p></div></div>
               <div className="timeline-node-item"><div className="node-left-year">27 SM</div><div className="node-right-content"><h4>Augustus menjadi Kaisar pertama</h4><p>Awal berdirinya kekaisaran stabil dan era Pax Romana.</p></div></div>
               <div className="timeline-node-item"><div className="node-left-year">64 M</div><div className="node-right-content"><h4>Kebakaran Roma & penganiayaan Kristen</h4><p>Tragedi sosial kemanusiaan besar pada masa Nero.</p></div></div>
               <div className="timeline-node-item"><div className="node-left-year">313 M</div><div className="node-right-content"><h4>Edik Milan disahkan</h4><p>Agama Kristen resmi diakui dan dilindungi negara.</p></div></div>
@@ -535,17 +506,14 @@ const RomawiPage = () => {
           <section id="warisan">
             <span className="chapter-tag">Bab 9 · Peninggalan & Warisan</span>
             <h2>Wujud Fisik dan Relevansi Modern</h2>
-            
-            {/* TAMPILAN GRID 2 KOLOM YANG PRESISI SEPERTI DI FIGMA */}
             <div className="legacy-grid-layout">
               <div className="figma-legacy-card">
                 <div className="legacy-card-header">
                   <div className="legacy-card-title">Sistem Jalan Romawi</div>
                   <span className="legacy-card-badge">Fisik</span>
                 </div>
-                <p className="legacy-card-desc">Jalan batu dengan drainase mumpuni yang menjadi fondasi jaringan logistik Eropa dan jalan antar-negara bagian Amerika Serikat.</p>
+                <p className="legacy-card-desc">Jalan batu dengan drainase mumpuni yang menjadi fondasi jaringan logistik Eropa.</p>
               </div>
-
               <div className="figma-legacy-card">
                 <div className="legacy-card-header">
                   <div className="legacy-card-title">Beton & Kubah</div>
@@ -553,32 +521,11 @@ const RomawiPage = () => {
                 </div>
                 <p className="legacy-card-desc">Formulasi material kuat abadi (Pantheon, Colosseum) yang memicu revolusi konstruksi arsitektur monumental modern.</p>
               </div>
-
-              <div className="figma-legacy-card">
-                <div className="legacy-card-header">
-                  <div className="legacy-card-title">Hukum Romawi</div>
-                  <span className="legacy-card-badge">Non-Fisik</span>
-                </div>
-                <p className="legacy-card-desc">Hukum Dua Belas Tabel yang melahirkan asas praduga tak bersalah dan menjadi poros utama hukum perdata sipil di 150 negara lebih.</p>
-              </div>
-
-              <div className="figma-legacy-card">
-                <div className="legacy-card-header">
-                  <div className="legacy-card-title">Sistem Republik</div>
-                  <span className="legacy-card-badge">Non-Fisik</span>
-                </div>
-                <p className="legacy-card-desc">Konsep perwakilan rakyat (Lembaga Senat dan Parlemen) sebagai fondasi utama penegakan trias politika demokrasi modern.</p>
-              </div>
             </div>
 
-            <div style={{ marginTop: '50px' }}>
-              <p className="body-text">Dunia modern masih “meminjam” dari Roma setiap hari: saat kita berjalan di trotoar beton, membaca undang-undang, atau menandai tanggal di kalender. Imperium ini mengajarkan bahwa kekuasaan harus dibarengi tanggung jawab, inovasi harus melayani rakyat, dan perdamaian adalah prestasi tertinggi.</p>
-              <p className="body-text">Roma mengingatkan kita bahwa peradaban terhebat sekalipun rapuh. Di tengah krisis iklim, polarisasi politik, dan teknologi yang melaju cepat, pelajaran Romawi tetap relevan: bangun fondasi yang kuat, adaptasi dengan bijak, dan ingat bahwa sejarah selalu mengulang dirinya — kecuali kita belajar darinya.</p>
-            </div>
-
-            <div className="bottom-pagination">
-              <span>Sebelumnya</span>
-              <a href="#previous">← Babilonia / ~1900 SM</a>
+            <div className="bottom-pagination" style={{ marginTop: '50px' }}>
+              <span>Selanjutnya</span>
+              <button onClick={() => onNavigate('timeline')} style={{ cursor: 'pointer' }}>Timeline Global / Lintas Peradaban →</button>
             </div>
           </section>
         </main>
