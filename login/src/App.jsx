@@ -12,6 +12,11 @@ import { DetailMesopotamia } from "./page/DetailMesopotamia";
 import { DetailIndus } from "./page/DetailIndus";
 import { DetailBabylon } from "./page/DetailBabylon";
 
+// centralize dummy data imports
+import * as mesoData from "./data/mesopotamiaData";
+import * as indusData from "./data/indusData";
+import * as babylonData from "./data/babylonData";
+
 function App() {
   return (
     <Routes>
@@ -23,9 +28,9 @@ function App() {
       <Route path="/timeline" element={<TimelinePage />} />
 
       <Route path="/detail-mesir" element={<MesirPage />} />
-      <Route path="/detail-mesopotamia" element={<DetailMesopotamia />} />
-      <Route path="/detail-indus" element={<DetailIndus />} />
-      <Route path="/detail-babylon" element={<DetailBabylon />} />
+      <Route path="/detail-mesopotamia" element={<DetailMesopotamia {...mesoData} />} />
+      <Route path="/detail-indus" element={<DetailIndus {...indusData} />} />
+      <Route path="/detail-babylon" element={<DetailBabylon {...babylonData} />} />
       <Route path="/detail-rome" element={<RomawiPage />} />
 
       <Route path="*" element={<Navigate to="/" replace />} />
